@@ -92,6 +92,7 @@ end)
 
 telescope.setup {
   defaults = {
+    -- file_ignore_patterns = {'node_modules'},
     mappings = {
       n = {
         ["<leader>q"] = actions.close,

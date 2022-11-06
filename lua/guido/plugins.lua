@@ -46,4 +46,26 @@ return require('packer').startup(function(use)
     use 'ryanoasis/vim-devicons'
     use 'lewis6991/gitsigns.nvim'
     use 'dinhhuy258/git.nvim'
-end)
+    use { 'phaazon/hop.nvim', branch = 'v2', -- optional but strongly recommended
+              config = function()
+                -- you can configure Hop the way you like here; see :h hop-config
+                require'hop'.setup { keys = 'etovxqpdygfblzhckisuran' }
+              end
+}
+    use "lukas-reineke/indent-blankline.nvim"
+    -- Packer. Noice takes way too much memory
+--     use({ "folke/noice.nvim",
+--             config = function()
+--             require("noice").setup()
+--           end,
+--           requires = {
+--             -- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
+--             "MunifTanjim/nui.nvim",
+--             -- OPTIONAL:
+--             --   `nvim-notify` is only needed, if you want to use the notification view.
+--             --   If not available, we use `mini` as the fallback
+--             "rcarriga/nvim-notify",
+--         }
+-- })
+end
+)

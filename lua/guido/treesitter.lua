@@ -38,8 +38,10 @@ ts.setup {
 
 
     -- A list of parser names, or "all"
-    ensure_installed = { "c", "lua", "rust", 'javascript', 'python', 'typescript', 'css', 'html', 'json', 'toml', 'yaml',
-        'tsx', 'fish', 'php' },
+    ensure_installed = { "c", "lua", "rust", 'javascript', 'typescript', 'css', 'html', 'json', 'toml', 'yaml',
+        'tsx', 'fish', 'php' ,
+            -- 'python'
+    },
 
     -- Install parsers synchronously (only applied to `ensure_installed`)
     sync_install = false,

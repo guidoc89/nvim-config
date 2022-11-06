@@ -1,5 +1,4 @@
 local opts = { noremap = true, silent = true }
-
 local term_opts = { silent = true }
 
 -- Shorten function name
@@ -19,6 +18,11 @@ keymap('n', '-', '<C-x>', opts)
 
 -- Dont yank with X
 keymap('n', 'x', '"_x', opts)
+
+-- So I can use Visual block (for some reason it conflicted with Windows paste)
+
+
+
 
 -- New tab
 keymap('n', 'te', ':tabedit<Return>', term_opts)
@@ -67,7 +71,17 @@ keymap('n', '<C-w>i', ':split<Return><C-w>w', opts)
 keymap('n', '<C-w>u', ':vsplit<Return><C-w>w', opts)
 
 -- Resize window
-keymap('n', '<C-w><left>', '<C-w><', opts)
-keymap('n', '<C-w><right>', '<C-w>>', opts)
-keymap('n', '<C-w><up>', '<C-w>+', opts)
-keymap('n', '<C-w><down>', '<C-w>-', opts)
+keymap('n', '<C-w><left>', '<C-w>6<', opts)
+keymap('n', '<C-w><right>', '<C-w>6>', opts)
+keymap('n', '<C-w><up>', '<C-w>6+', opts)
+keymap('n', '<C-w><down>', '<C-w>6-', opts)
+
+-- For searching/replacing faster
+keymap("n","<leader>sr", ":%s/", opts)
+
+-- Save faster
+-- keymap("n","<leader><leader>w", ":w<CR>", opts)
+
+-- Exit faster
+-- keymap("n","<leader><leader>q", ":q<CR>", opts)
+

@@ -21,5 +21,8 @@ require('guido.autotag')
 require('guido.autotag')
 require('guido.git')
 require('guido.gitsigns')
+require('guido.hop')
+require('guido.indentline')
+-- require('guido.noice')
 
 --require('guido.compe')  -- trying to see if it changes something
