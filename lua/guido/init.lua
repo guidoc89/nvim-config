@@ -14,4 +14,5 @@ require('guido.comment')
 require('guido.vimtex')
 require('guido.autotag')
 require('guido.quarto')
-require('guido.jupynium')
+-- require('guido.jupynium') -- dont need to call it to work
+require('guido.lualine')

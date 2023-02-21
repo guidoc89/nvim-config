@@ -15,6 +15,12 @@ return require('packer').startup(function(use)
     use 'JoosepAlviste/nvim-ts-context-commentstring'
     use 'windwp/nvim-ts-autotag'
 
+    -- Lualine (statusline)
+    use {
+        'nvim-lualine/lualine.nvim',
+        requires = { 'kyazdani42/nvim-web-devicons', opt = true }
+    }
+
     -- Telescope
     use {'nvim-telescope/telescope.nvim' ,requires= 'nvim-lua/plenary.nvim' }
     use { "nvim-telescope/telescope-file-browser.nvim" }
