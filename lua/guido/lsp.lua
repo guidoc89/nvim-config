@@ -118,6 +118,54 @@ end)
 -- (Optional) Configure lua language server for neovim
 --lsp.nvim_workspace()
 
+lsp.configure('lua_ls', {
+    settings = {
+        completions = {
+            completeFunciontCalls = true,
+        },
+        Lua = {
+            diagnostics = {
+                globals = { 'vim' }
+            }
+        }
+    }
+})
+
+-- Markdown config (TODO: does it work?)
+lsp.configure('marksman', {
+    settings = {
+        completions = {
+            completeFunciontCalls = true,
+        }
+    },
+  filetypes = {
+        "quarto",
+        "markdown",
+        "ju.py",
+        "jupyter",
+        "python",
+    },
+    flags = {
+        debounce_text_changes = 200,
+    },
+    -- on_attach = function(client, bufnr)
+    --         local opts = {buffer = bufnr, remap = false}
+    --
+    --         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
+    --         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
+    --         vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
+    --         vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
+    --         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
+    --         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    --         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
+    --         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+    --         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
+    --         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+    --     end,
+  }
+)
+
+
 lsp.setup()
 
 -- In order to have in-line diagnostics, need to configure them AFTER the lsp-zero's setup (from the github) 
