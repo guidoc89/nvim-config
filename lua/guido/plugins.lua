@@ -3,7 +3,10 @@ vim.cmd [[packadd packer.nvim]]
 return require('packer').startup(function(use)
     -- Packer can manage itself as an optional plugin
     use { 'wbthomason/packer.nvim', opt = true }
-    use 'folke/tokyonight.nvim' -- colorscheme
+    -- Coloschemes
+    use 'folke/tokyonight.nvim' 
+    use 'rebelot/kanagawa.nvim' 
+
     use {'kyazdani42/nvim-tree.lua', requires = 'nvim-tree/nvim-web-devicons' } -- file tree
     use 'numToStr/Comment.nvim' -- commenting easily
     use 'nvim-lua/plenary.nvim' -- commenting easily
@@ -78,6 +81,8 @@ return require('packer').startup(function(use)
           'neovim/nvim-lspconfig'
         },
       }
+
+    use { 'theprimeagen/harpoon' }
 
     -- Jupyter support
     use { "kiyoon/jupynium.nvim", run = "pip3 install --user ." }

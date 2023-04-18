@@ -107,8 +107,8 @@ lsp.on_attach(function(client, bufnr)
     vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
     vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
     vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
+    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
+    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
     vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
     vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
     vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
@@ -148,23 +148,45 @@ lsp.configure('marksman', {
     flags = {
         debounce_text_changes = 200,
     },
-    -- on_attach = function(client, bufnr)
-    --         local opts = {buffer = bufnr, remap = false}
-    --
-    --         vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    --         vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    --         vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    --         vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
-    --         vim.keymap.set("n", "[d", function() vim.diagnostic.goto_next() end, opts)
-    --         vim.keymap.set("n", "]d", function() vim.diagnostic.goto_prev() end, opts)
-    --         vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    --         vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    --         vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    --         vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
-    --     end,
   }
 )
 
+-- -- Pyright disabling (for linting)
+-- lsp.configure('pyright', {
+--     capabilities = (function()
+--     local capabilities = vim.lsp.protocol.make_client_capabilities()
+--     capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+--     return capabilities
+--     end)(),
+--     settings = {
+--         python = {
+--             analysis = {
+--                 useLibraryCodeForTypes = true,
+--                 diagnosticSeverityOverrides = {
+--                   reportUnusedVariable = "warning", -- or anything
+--                 },
+--                 typeCheckingMode = "basic",
+--               },
+--             },
+--           },
+--     })
+
+--
+-- -- After didabling pyright, activate ruff for linting
+-- lsp.configure('ruff_lsp', {
+--     settings = {
+--         arg = {
+--             lineLength = 120,
+--         },
+--     },
+--     on_attach = function(client, bufnr)
+--         client.server_capabilities.hoverProvider = false
+--     end
+--     }
+-- )
+--
+--
+lsp.skip_server_setup({'ruff_lsp'})
 
 lsp.setup()
 
