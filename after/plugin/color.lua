@@ -1,13 +1,13 @@
 --  -- General nvim config
--- vim.opt.background = "dark"
--- vim.opt.cursorline = false
+vim.opt.background = "dark"
+vim.opt.cursorline = true
 
 -- -- Tokyonight config
 -- vim.g.tokyonight_transparent_sidebar = false
 -- vim.g.tokyonight_italic_functions = true
--- vim.g.tokyonight_transparent = false
+-- vim.g.tokyonight_transparent = true
 -- require('tokyonight').setup({
---     transparent = false,
+--     transparent = true,
 --     styles = {
 --         sidebars = 'transparent',
 --         floats = 'transparent',
@@ -32,7 +32,7 @@ require('kanagawa').setup({
     keywordStyle = { italic = true},
     statementStyle = { bold = true },
     typeStyle = {},
-    transparent = false,         -- do not set background color
+    transparent = true,         -- do not set background color
     dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
     terminalColors = true,       -- define vim.g.terminal_color_{0,17}
     colors = {                   -- add/modify theme and palette colors

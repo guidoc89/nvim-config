@@ -73,3 +73,6 @@ keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files({no_ign
 keymap("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
 keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", opts)
+
+-- Nvim tree
+keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
