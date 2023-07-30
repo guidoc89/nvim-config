@@ -52,17 +52,15 @@ keymap('n', '<S-Tab>', ':tabprevious<CR>', term_opts)
 
 -- Better indenting
 keymap('v', '<', '<gv', term_opts)
-keymap('v', '>', '>gv', term_opts)
+keymap("v", '>', '>gv', term_opts)
 
 -- Tab switch buffer
-keymap('n', '<Leader>]', ':bnext<CR>', term_opts)
-keymap('n', '<Leader>[', ':bprevious<CR>', term_opts)
+keymap("n", "L", ":bnext<CR>", term_opts)
+keymap("n", "H", ":bprevious<CR>", term_opts)
 
 -- Move selected line/block in Visual mode
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
-keymap("x", "<A-j>", ":move '>+1<CR>gv-gv", opts)
-keymap("x", "<A-k>", ":move '<-2<CR>gv-gv", opts)
 
 -- Increment/decrement numbers
 keymap('n', '+', '<C-a>', opts)
@@ -75,4 +73,4 @@ keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers()<cr>", op
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", opts)
 
 -- Nvim tree
-keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
+-- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)

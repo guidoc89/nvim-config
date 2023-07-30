@@ -1,10 +1,4 @@
 return {
-    -- -- Packer can manage itself as an optional plugin
-    --  { 'wbthomason/packer.nvim', opt = true }
-    -- Coloschemes
-     'folke/tokyonight.nvim',
-     'rebelot/kanagawa.nvim',
-
     {
           "nvim-tree/nvim-tree.lua",
           version = "*",
@@ -15,20 +9,11 @@ return {
             require("nvim-tree").setup {}
           end,
     },
-     'nvim-lua/plenary.nvim', 
-     'tpope/vim-surround', -- to easily surround selections with delimiters
-     -- { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup {} end }, -- to easily surround selections with delimiters
+     'nvim-lua/plenary.nvim',
      'mbbill/undotree',
      'tpope/vim-fugitive',
      'lewis6991/gitsigns.nvim',
      'joosepalviste/nvim-ts-context-commentstring',
-     -- 'windwp/nvim-ts-autotag',
-
-    -- lualine (statusline)
-    --  {
-    --     'nvim-lualine/lualine.nvim',
-    --     -- dependencies = { 'kyazdani42/nvim-web-devicons', opt = true }
-    -- },
 
     -- telescope
      {'nvim-telescope/telescope.nvim' ,dependencies= 'nvim-lua/plenary.nvim' },
@@ -36,9 +21,7 @@ return {
      'nvim-telescope/telescope-media-files.nvim',
 
     -- treesitter
-    -- 'nvim-treesitter/nvim-treesitter', {run=':TSUpdate'},
-    {'nvim-treesitter/nvim-treesitter'},
-    -- {'nvim-treesitter/playground'},
+    { 'nvim-treesitter/nvim-treesitter'},
 
     -- lsp
      {
@@ -66,13 +49,6 @@ return {
       }
     },
 
-    -- markdown preview (in a browser)
-    -- ({
-    --     "iamcco/markdown-preview.nvim",
-    --     build = function() vim.fn["mkdp#util#install"]() end,
-    -- }),
-
-    
     -- markdown preview (in the terminal)
      -- {"ellisonleao/glow.nvim", config = function() require("glow").setup() end},
 

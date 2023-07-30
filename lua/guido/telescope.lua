@@ -9,17 +9,19 @@ local function telescope_buffer_dir()
   return vim.fn.expand('%:p:h')
 end
 
-
 local fb_actions = require "telescope".extensions.file_browser.actions
 
 -- To seach git files
 vim.keymap.set('n', '<C-p>', builtin.git_files, {})
+vim.keymap.set('n', '<C-c>', builtin.git_bcommits, {})
+vim.keymap.set('n', '<C-l>', builtin.git_commits, {})
+
 
 telescope.setup {
   defaults = {
     mappings = {
       n = {
-        ["<leader>q"] = actions.close,
+        ["q"] = actions.close,
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
 
@@ -67,15 +69,14 @@ telescope.setup {
   },
 }
 
-
 vim.keymap.set('n', '<leader>r', function()
   builtin.live_grep()
 end)
 vim.keymap.set('n', '<leader>b', function()
   builtin.buffers()
 end)
-vim.keymap.set('n', ';t', function()
-  builtin.help_tags()
+vim.keymap.set('n', "<leader>ss", function()
+  builtin.lsp_document_symbols()
 end)
 vim.keymap.set('n', '<leader>;', function()
   builtin.resume()
@@ -84,13 +85,20 @@ vim.keymap.set('n', '<leader>d', function()
   builtin.diagnostics()
 end)
 
+local util = require("utils")
+
 
 telescope.setup {
   defaults = {
-    -- file_ignore_patterns = {'node_modules'},
+    file_ignore_patterns = {
+            "windows_venv/*",
+            "node_modules/.*",
+            ".git/.*",
+            "%.ipynb",
+        },
     mappings = {
       n = {
-        ["<leader>q"] = actions.close,
+        ["q"] = actions.close,
         ["<Down>"] = actions.move_selection_next,
         ["<Up>"] = actions.move_selection_previous,
 
@@ -110,6 +118,21 @@ telescope.setup {
         ["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
         ["<C-l>"] = actions.complete_tag,
         ["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
+
+        -- ["<leader>ss"] = util.telescope("lsp_document_symbols", {
+        --   symbols = {
+        --     "Class",
+        --     "Function",
+        --     "Method",
+        --     "Constructor",
+        --     "Interface",
+        --     "Module",
+        --     "Struct",
+        --     "Trait",
+        --     "Field",
+        --     "Property",
+        --   },
+        -- }),
       },
     },
   },
@@ -147,7 +170,7 @@ telescope.setup {
         ["n"] = {
           -- your custom normal mode mappings
           ["N"] = fb_actions.create,
-          ["h"] = fb_actions.goto_parent_dir,
+          -- ["h"] = fb_actions.goto_parent_dir,
           ["/"] = function()
             vim.cmd('startinsert')
           end
@@ -158,7 +181,7 @@ telescope.setup {
 }
 --telescope.load_extension("file_browser")
 
-vim.keymap.set("n", "sf", function()
+vim.keymap.set("n", "<leader>sf", function()
   telescope.extensions.file_browser.file_browser({
     path = "%:p:h",
     cwd = telescope_buffer_dir(),

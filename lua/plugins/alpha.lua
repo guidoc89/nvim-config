@@ -4,7 +4,7 @@ return {
 		event = "VimEnter",
 		opts = function()
 			local dashboard = require("alpha.themes.dashboard")
-            local datetime = os.date(" %H:%M. ")
+            local datetime = os.date(" %H:%M ")
 
 			dashboard.section.header.val = {
                   [[  ██████   █████                   █████   █████  ███                  ]],
@@ -18,7 +18,7 @@ return {
                   [[]],
                   [[]],
                   [[]],
-                  "              Hi Guido"  .. "," .. " it's" .. datetime .. "How are you doing today?",
+                  "                   [ Guido Castro ]    -    Time:" .. datetime,
                 }
 			dashboard.section.buttons.val = {
 				dashboard.button("f", " " .. " Find file", ":Telescope find_files <CR>"),
@@ -40,7 +40,6 @@ return {
 					local ms = math.floor(stats.startuptime * 100) / 100
 					dashboard.section.footer.val = {
                         "󱐌 Lazy-loaded " .. stats.loaded .. " plugins in " .. ms .. "ms",
-                        
                     }
 					pcall(vim.cmd.AlphaRedraw)
 				end,

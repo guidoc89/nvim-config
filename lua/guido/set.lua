@@ -21,5 +21,5 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.g.mapleader = " "
 
-vim.opt.path:append { '**' } -- finding files, search down into subdirs
-vim.opt.wildignore:append { '*/node_modules/*' }
+-- vim.opt.path:append { '**' } -- finding files, search down into subdirs
+-- vim.opt.wildignore:append { '*/node_modules/*' }
