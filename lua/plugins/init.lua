@@ -88,8 +88,14 @@ return {
 
      { 'theprimeagen/harpoon' },
 
+   -- {
+   --      "shellRaining/hlchunk.nvim",
+   --      event = { "UIEnter" },
+   --  },
+
+
     -- jupyter support
-     { "kiyoon/jupynium.nvim", build = "pip3 install --user ." },
+     { "kiyoon/jupynium.nvim", build = "pip3 install --user ." ,event="VeryLazy" }, 
 
     ---- to cycle through tmux and vim panes with the same keybings 
    -- ({
