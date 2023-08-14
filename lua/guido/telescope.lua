@@ -92,9 +92,11 @@ telescope.setup {
   defaults = {
     file_ignore_patterns = {
             "windows_venv/*",
+            "venv/*",
             "node_modules/.*",
             ".git/.*",
             "%.ipynb",
+            "%.xlsx",
         },
     mappings = {
       n = {
