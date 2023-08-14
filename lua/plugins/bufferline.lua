@@ -1,7 +1,7 @@
 return {
   "akinsho/bufferline.nvim",
     dependencies = {
-        "echasnovski/mini.bufremove"
+        "echasnovski/mini.bufremove",
     },
   event = "VeryLazy",
   keys = {

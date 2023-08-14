@@ -12,7 +12,7 @@ return {
      'nvim-lua/plenary.nvim',
      'mbbill/undotree',
      'tpope/vim-fugitive',
-     'lewis6991/gitsigns.nvim',
+     -- 'lewis6991/gitsigns.nvim',
      'joosepalviste/nvim-ts-context-commentstring',
 
     -- telescope

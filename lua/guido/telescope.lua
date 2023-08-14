@@ -72,7 +72,7 @@ telescope.setup {
 vim.keymap.set('n', '<leader>r', function()
   builtin.live_grep()
 end)
-vim.keymap.set('n', '<leader>b', function()
+vim.keymap.set('n', '<leader>bb', function()
   builtin.buffers()
 end)
 vim.keymap.set('n', "<leader>ss", function()
