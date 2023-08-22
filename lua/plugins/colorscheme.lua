@@ -37,7 +37,7 @@ return {
   },
     config = function()
         require("catppuccin").setup({
-            transparent_background = "true",
+            -- transparent_background = "true",
     --         custom_highlights = function(colors)
     --     return {
     --         -- Comment = { fg = colors.flamingo },
@@ -112,7 +112,7 @@ return {
 --               end,
 --               theme = "wave",              -- Load "wave" theme when 'background' option is not set
 --               background = {               -- map the value of 'background' option to a theme
---                   dark = "dragon",           -- try "dragon" !
+--                   dark = "wave",           -- try "dragon" !
 --                   light = "lotus"
 --               },
 --             }

@@ -1,158 +1,184 @@
 -- VSCode-like icons
 local kind_icons = {
-             Text=           '',
-             Function=      '',
-             Method=       '',
-             Constructor=   '',
-             Field=         '',
-             Variable=      '',
-             Class=         '',
-             Interface=    '',
-             Module=        '',
-             Property=     '',
-             Unit=          '',
-             Value=         '',
-             Enum=          '',
-             Keyword=       '',
-             Snippet=       '',
-             Color=         '',
-             File=          '',
-             Reference=     '',
-             Folder=        '',
-             EnumMember=    '',
-             Constant=      '',
-             Struct=        '',
-             Event=         '',
-             Operator=      '',
-             TypeParameter= '',
+	Text = "",
+	Function = "",
+	Method = "",
+	Constructor = "",
+	Field = "",
+	Variable = "",
+	Class = "",
+	Interface = "",
+	Module = "",
+	Property = "",
+	Unit = "",
+	Value = "",
+	Enum = "",
+	Keyword = "",
+	Snippet = "",
+	Color = "",
+	File = "",
+	Reference = "",
+	Folder = "",
+	EnumMember = "",
+	Constant = "",
+	Struct = "",
+	Event = "",
+	Operator = "",
+	TypeParameter = "",
 }
 
-
-local lsp = require('lsp-zero').preset({
-  name = 'minimal',
-  set_lsp_keymaps = true,
-  manage_nvim_cmp = true,
-  suggest_lsp_servers = false,
+local lsp = require("lsp-zero").preset({
+	name = "minimal",
+	set_lsp_keymaps = true,
+	manage_nvim_cmp = true,
+	suggest_lsp_servers = false,
 })
 
 --
 lsp.ensure_installed({
-    'tsserver',
-    'eslint',
-    --'lua-language-server',
-    'rust_analyzer',
-    'pyright',
-    'html',
-    'jsonls',
-    'cssls',
-    -- 'r_language_server',
-    'tailwindcss',
+	"tsserver",
+	"eslint",
+	--'lua-language-server',
+	"rust_analyzer",
+	"pyright",
+	"html",
+	"jsonls",
+	"cssls",
+	-- 'r_language_server',
+	"tailwindcss",
 })
 
-local lspkind = require('lspkind')
-local cmp = require('cmp')
-local cmp_select = {behavior = cmp.SelectBehavior.Select}
+local lspkind = require("lspkind")
+local cmp = require("cmp")
+local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
-    ['<S-Tab>'] = cmp.mapping.select_prev_item(cmp_select),
-    ['<Tab>'] = cmp.mapping.select_next_item(cmp_select),
-    ['<C-y>'] = cmp.mapping.confirm({ select = true }),
-    ['<C-space>'] = cmp.mapping.complete(),
+	["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
+	["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
+	["<C-y>"] = cmp.mapping.confirm({ select = true }),
+	["<C-space>"] = cmp.mapping.complete(),
 })
 
 lsp.setup_nvim_cmp({
-      sources = {
-            {name = 'path'},
-            {name = 'nvim_lsp', keyword_length = 1},
-            {name = 'buffer', keyword_length = 3},
-            {name = 'luasnip', keyword_length = 2},
-            {name = 'otter'},
-            {name = 'latex'},
-            {name = 'neorg'},
-  },
-    mapping = cmp_mappings,
-    formatting = {
-        fields = {'abbr', 'kind', 'menu'},
-        format = lspkind.cmp_format {
-            mode = 'text_symbol',
-            max_width = 50,
-                      -- The function below will be called before any actual modifications from lspkind
-          -- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-          before = function(entry, vim_item)
-            local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
-                if shorten_abbr ~= vim_item.abbr then vim_item.abbr = shorten_abbr .. "..." end
-            -- Kind icons
-                -- TODO: disabled the line to try to get rid of the squares to the sides of the current line (THIS ISNT THE CAUSE)
-            vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
-            -- Source
-            vim_item.menu = ({
-              buffer = "[Buf]",
-              nvim_lsp = "[LSP]",
-              luasnip = "[LuaSnip]",
-              nvim_lua = "[API]",
-              latex_symbols = "[LaTeX]",
-              cmp_tabnine = "[Tabnine]",
-              path = "[Path]",
-              otter = "[Quarto]",
-              -- emoji = "[Emoji]",
-            })[entry.source.name]
-            return vim_item
-          end,
-        },
-    }
+	sources = {
+		{ name = "path" },
+		{ name = "nvim_lsp", keyword_length = 1 },
+		{ name = "buffer", keyword_length = 3 },
+		{ name = "luasnip", keyword_length = 2 },
+		{ name = "otter" },
+		{ name = "latex" },
+		{ name = "neorg" },
+	},
+	mapping = cmp_mappings,
+	formatting = {
+		fields = { "abbr", "kind", "menu" },
+		format = lspkind.cmp_format({
+			mode = "text_symbol",
+			max_width = 50,
+			-- The function below will be called before any actual modifications from lspkind
+			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
+			before = function(entry, vim_item)
+				local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
+				if shorten_abbr ~= vim_item.abbr then
+					vim_item.abbr = shorten_abbr .. "..."
+				end
+				-- Kind icons
+				-- TODO: disabled the line to try to get rid of the squares to the sides of the current line (THIS ISNT THE CAUSE)
+				vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+				-- Source
+				vim_item.menu = ({
+					buffer = "[Buf]",
+					nvim_lsp = "[LSP]",
+					luasnip = "[LuaSnip]",
+					nvim_lua = "[API]",
+					latex_symbols = "[LaTeX]",
+					cmp_tabnine = "[Tabnine]",
+					path = "[Path]",
+					otter = "[Quarto]",
+					-- emoji = "[Emoji]",
+				})[entry.source.name]
+				return vim_item
+			end,
+		}),
+	},
 })
 
 lsp.on_attach(function(client, bufnr)
-    local opts = {buffer = bufnr, remap = false}
+	local opts = { buffer = bufnr, remap = false }
 
-    vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, opts)
-    vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, opts)
-    vim.keymap.set("n", "<leader>vws", function() vim.lsp.buf.workspace_symbol() end, opts)
-    vim.keymap.set("n", "<leader>vd", function() vim.lsp.buf.open_float() end, opts)
-    vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, opts)
-    vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, opts)
-    vim.keymap.set("n", "<leader>vca", function() vim.lsp.buf.code_action() end, opts)
-    -- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
-    vim.keymap.set("n", "<leader>vrn", function() vim.lsp.buf.rename() end, opts)
-    vim.keymap.set("i", "<C-h>", function() vim.lsp.buf.signature_help() end, opts)
+	vim.keymap.set("n", "gd", function()
+		vim.lsp.buf.definition()
+	end, opts)
+	vim.keymap.set("n", "K", function()
+		vim.lsp.buf.hover()
+	end, opts)
+	vim.keymap.set("n", "<leader>vws", function()
+		vim.lsp.buf.workspace_symbol()
+	end, opts)
+	vim.keymap.set("n", "<leader>vd", function()
+		vim.lsp.buf.open_float()
+	end, opts)
+	vim.keymap.set("n", "]d", function()
+		vim.diagnostic.goto_next()
+	end, opts)
+	vim.keymap.set("n", "[d", function()
+		vim.diagnostic.goto_prev()
+	end, opts)
+	vim.keymap.set("n", "<leader>vca", function()
+		vim.lsp.buf.code_action()
+	end, opts)
+	-- vim.keymap.set("n", "<leader>vrr", function() vim.lsp.buf.references() end, opts)
+	vim.keymap.set("n", "<leader>vrn", function()
+		vim.lsp.buf.rename()
+	end, opts)
+	vim.keymap.set("i", "<C-h>", function()
+		vim.lsp.buf.signature_help()
+	end, opts)
 end)
 
-lsp.configure('lua_ls', {
-    settings = {
-        completions = {
-            completeFunciontCalls = true,
-        },
-        Lua = {
-            diagnostics = {
-                globals = { 'vim' }
-            }
-        }
-    }
+lsp.configure("lua_ls", {
+	settings = {
+		completions = {
+			completeFunciontCalls = true,
+		},
+		Lua = {
+			diagnostics = {
+				globals = { "vim" },
+			},
+		},
+	},
 })
 
 -- Markdown config (TODO: does it work?)
-lsp.configure('marksman', {
-    settings = {
-        completions = {
-            completeFunciontCalls = true,
-        }
-    },
-  filetypes = {
-        "quarto",
-        "markdown",
-        "ju.py",
-        "jupyter",
-        "python",
-    },
-    flags = {
-        debounce_text_changes = 200,
-    },
-  }
-)
+lsp.configure("marksman", {
+	settings = {
+		completions = {
+			completeFunciontCalls = true,
+		},
+	},
+	filetypes = {
+		"quarto",
+		"markdown",
+		"ju.py",
+		"jupyter",
+		"python",
+	},
+	flags = {
+		debounce_text_changes = 200,
+	},
+})
 
- -- Tailwind
-require('lspconfig').tailwindcss.setup({
-    cmd= { "tailwindcss-language-server", "--stdio" },
-     root_dir = require('lspconfig.util').root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
+-- Tailwind
+require("lspconfig").tailwindcss.setup({
+	cmd = { "tailwindcss-language-server", "--stdio" },
+	root_dir = require("lspconfig.util").root_pattern(
+		"tailwind.config.js",
+		"tailwind.config.ts",
+		"postcss.config.js",
+		"postcss.config.ts",
+		"package.json",
+		"node_modules",
+		".git"
+	),
 	init_options = {
 		userLanguages = {
 			elixir = "phoenix-heex",
@@ -199,7 +225,7 @@ require('lspconfig').tailwindcss.setup({
 		},
 	},
 	filetypes = {
-        "python", -- ex: for Dash classes
+		"python", -- ex: for Dash classes
 		"css",
 		"scss",
 		"sass",
@@ -215,9 +241,7 @@ require('lspconfig').tailwindcss.setup({
 	},
 })
 
-
-
--- Tailwind 
+-- Tailwind
 -- lsp.configure('tailwindcss', {
 --     cmd= { "tailwindcss-language-server", "--stdio" },
 --      root_dir = require('lspconfig.util').root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
@@ -283,7 +307,6 @@ require('lspconfig').tailwindcss.setup({
 -- 	},
 -- })
 
-
 -- -- Pyright disabling (for linting)
 -- lsp.configure('pyright', {
 --     capabilities = (function()
@@ -319,27 +342,43 @@ require('lspconfig').tailwindcss.setup({
 -- )
 --
 --
-lsp.skip_server_setup({'ruff_lsp'})
+lsp.skip_server_setup({ "ruff_lsp" })
+
+lsp.format_mapping("<leader>pq", {
+	format_opts = {
+		async = false,
+		timeout_ms = 10000,
+	},
+	servers = {
+		["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python" },
+	},
+})
 
 lsp.setup()
 
--- In order to have in-line diagnostics, need to configure them AFTER the lsp-zero's setup (from the github) 
-vim.diagnostic.config({
-  virtual_text = true,
-  signs = true,
-  update_in_insert = false,
-  underline = false,
-  severity_sort = false,
-  float = {
-    focusable = false,
-    style = 'minimal',
-    border = 'rounded',
-    source = 'always',
-    header = '',
-    prefix = '',
-    }
+local null_ls = require("null-ls")
+null_ls.setup({
+	sources = {
+		null_ls.builtins.formatting.stylua,
+		null_ls.builtins.formatting.prettier,
+        null_ls.builtins.formatting.black,
+        -- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
+	},
 })
 
-
-
-
+-- In order to have in-line diagnostics, need to configure them AFTER the lsp-zero's setup (from the github)
+vim.diagnostic.config({
+	virtual_text = true,
+	signs = true,
+	update_in_insert = false,
+	underline = false,
+	severity_sort = false,
+	float = {
+		focusable = false,
+		style = "minimal",
+		border = "rounded",
+		source = "always",
+		header = "",
+		prefix = "",
+	},
+})
