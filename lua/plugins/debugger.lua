@@ -3,6 +3,7 @@ return {
 		"mfussenegger/nvim-dap",
 		keys = {
 			{ "<leader>db", "<cmd> DapToggleBreakpoint <CR>", mode = { "n", "v" } },
+			{ "<leader>ds", "<cmd> DapContinue<CR>", mode = { "n", "v" } },
 		},
 	},
 
