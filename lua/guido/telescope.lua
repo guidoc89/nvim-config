@@ -1,4 +1,6 @@
 require('telescope').load_extension('media_files')
+require('telescope').load_extension('git_worktree')
+require('telescope').load_extension('harpoon')
 
 local status, telescope = pcall(require, "telescope")
 if (not status) then return end

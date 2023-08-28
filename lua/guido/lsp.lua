@@ -344,7 +344,7 @@ require("lspconfig").tailwindcss.setup({
 --
 lsp.skip_server_setup({ "ruff_lsp" })
 
-lsp.format_mapping("<leader>pq", {
+lsp.format_mapping("<leader>;f", {
 	format_opts = {
 		async = false,
 		timeout_ms = 10000,
