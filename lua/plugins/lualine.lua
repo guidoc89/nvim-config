@@ -42,16 +42,18 @@ return {
                         info = icons.diagnostics.Info,
                     },
                 },
-                    { "filetype", icon_only = true, separator = "", padding = { left = 1, right = 0 } },
+                    -- { "filetype", icon_only = false, separator = "", padding = { left = 1, right = 0 } },
                     { "filename", path = 1, symbols = { modified = "  ", readonly = "", unnamed = "" } },
                     {
-                        function() return require("nvim-navic").get_location() end,
-                        cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
+                        -- function() return require("lspsaga.symbol.winbar").get_bar() end,
+
+                       -- function() return require("nvim-navic").get_location() end,
+                        -- cond = function() return package.loaded["nvim-navic"] and require("nvim-navic").is_available() end,
                     },
                 },
         lualine_x = {
-                    'encoding',
-                    'fileformat',
+                    -- 'encoding',
+                    { "filetype", icon_only = false, separator = "", padding = { left = 0, right = 1 } },
                     {
                         "diff",
                         symbols = {
@@ -62,12 +64,12 @@ return {
                     },
                 },
         lualine_y = {
-                    { "progress", separator = " ", padding = { left = 1, right = 0 } },
-                    { "location", padding = { left = 0, right = 1 } },
+                    { "progress", separator = " ", padding = { left = 0, right = 1 } },
+                    -- { "location", padding = { left = 0, right = 1 } },
                 },
         lualine_z = {
             function()
-              return " " .. os.date("%R")
+              return " " .. os.date("%R") .. " " .. os.date("%x")
             end,
           },
       },

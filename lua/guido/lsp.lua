@@ -225,7 +225,7 @@ require("lspconfig").tailwindcss.setup({
 		},
 	},
 	filetypes = {
-		"python", -- ex: for Dash classes
+		-- "python", -- ex: for Dash classes
 		"css",
 		"scss",
 		"sass",

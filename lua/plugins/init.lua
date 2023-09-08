@@ -1,18 +1,7 @@
 return {
-    {
-          "nvim-tree/nvim-tree.lua",
-          version = "*",
-          dependencies = {
-            "nvim-tree/nvim-web-devicons",
-          },
-          config = function()
-            require("nvim-tree").setup {}
-          end,
-    },
+
      'nvim-lua/plenary.nvim',
-     'mbbill/undotree',
      'tpope/vim-fugitive',
-     -- 'lewis6991/gitsigns.nvim',
      'joosepalviste/nvim-ts-context-commentstring',
 
     -- telescope
@@ -48,9 +37,6 @@ return {
 
       }
     },
-
-    -- markdown preview (in the terminal)
-     -- {"ellisonleao/glow.nvim", config = function() require("glow").setup() end},
 
     -- latex
      -- 'lervag/vimtex',
@@ -88,14 +74,6 @@ return {
 
      { 'theprimeagen/harpoon' },
 
-   -- {
-   --      "shellRaining/hlchunk.nvim",
-   --      event = { "UIEnter" },
-   --  },
-
-
-    -- jupyter support
-     { "kiyoon/jupynium.nvim", build = "pip3 install --user ." ,event="VeryLazy" }, 
 
     ---- to cycle through tmux and vim panes with the same keybings 
    -- ({

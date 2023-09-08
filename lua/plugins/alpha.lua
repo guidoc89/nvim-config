@@ -3,6 +3,7 @@ return {
 		"goolord/alpha-nvim",
 		event = "VimEnter",
 		opts = function()
+            require'alpha'.setup(require'alpha.themes.startify'.config)
 			local dashboard = require("alpha.themes.dashboard")
             local datetime = os.date(" %H:%M ")
 
