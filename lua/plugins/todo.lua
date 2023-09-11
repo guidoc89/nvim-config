@@ -23,5 +23,8 @@ return {
         { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
         { "<leader>tq", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
         { "<leader>tl", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+        -- -- TODO: find out why this doesnt work with projets 
+        -- { "<leader>tc", "<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>" , desc = "search TODOs in current file" },
+        --<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>
     },
 }

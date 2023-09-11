@@ -27,6 +27,7 @@ return {
 						config = {
 							workspaces = {
 								progetti_notes = "/mnt/c/Users/CST/Guido castro/progetti_notes",
+								poli = "/mnt/c/Users/CST/Guido castro/poli",
 							},
 							default_workspace = "progetti_notes",
 						},

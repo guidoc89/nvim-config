@@ -27,7 +27,7 @@ vim.wo.cursorline = true
 --           information = { "undercurl" },
 --         },
 --       },
---       navic = { enabled = true, custom_bg = "lualine" },
+--       -- navic = { enabled = true, custom_bg = "lualine" },
 --       neotest = true,
 --       neotree = true,
 --       semantic_tokens = true,
@@ -37,7 +37,7 @@ vim.wo.cursorline = true
 --   },
 --     config = function()
 --         require("catppuccin").setup({
---             transparent_background = "false",
+--             -- transparent_background = "false",
 --     --         custom_highlights = function(colors)
 --     --     return {
 --     --         -- Comment = { fg = colors.flamingo },
@@ -85,6 +85,15 @@ vim.wo.cursorline = true
 --         vim.cmd[[colorscheme tokyonight]]
 --     end
 -- }
+
+-- -- Onedark
+-- return {
+--     "joshdick/onedark.vim",
+--     config = function ()
+--         vim.cmd[[colorscheme onedark]]
+--     end
+-- }
+
 
 -- Kanagawa
 return {

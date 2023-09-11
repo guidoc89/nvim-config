@@ -40,7 +40,7 @@ lsp.ensure_installed({
 	"eslint",
 	--'lua-language-server',
 	"rust_analyzer",
-	"pyright",
+	-- "pyright",
 	"html",
 	"jsonls",
 	"cssls",
@@ -94,7 +94,7 @@ lsp.setup_nvim_cmp({
 					cmp_tabnine = "[Tabnine]",
 					path = "[Path]",
 					otter = "[Quarto]",
-					-- emoji = "[Emoji]",
+					emoji = "[Emoji]",
 				})[entry.source.name]
 				return vim_item
 			end,
@@ -307,28 +307,30 @@ require("lspconfig").tailwindcss.setup({
 -- 	},
 -- })
 
--- -- Pyright disabling (for linting)
--- lsp.configure('pyright', {
---     capabilities = (function()
---     local capabilities = vim.lsp.protocol.make_client_capabilities()
---     capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
---     return capabilities
---     end)(),
---     settings = {
---         python = {
---             analysis = {
---                 useLibraryCodeForTypes = true,
---                 diagnosticSeverityOverrides = {
---                   reportUnusedVariable = "warning", -- or anything
---                 },
---                 typeCheckingMode = "basic",
---               },
---             },
---           },
---     })
-
+-- Pyright disabling (for linting)
+lsp.configure("pyright", {
+	capabilities = (function()
+		local capabilities = vim.lsp.protocol.make_client_capabilities()
+		capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
+		return capabilities
+	end)(),
+	settings = {
+		python = {
+			analysis = {
+				autoImportCompletions = true,
+				useLibraryCodeForTypes = true,
+				autoSearchPaths = true,
+				diagnosticSeverityOverrides = {
+					reportUnusedVariable = "warning", -- or anything
+				},
+				typeCheckingMode = "basic",
+			},
+		},
+	},
+})
 --
--- -- After didabling pyright, activate ruff for linting
+--
+-- After didabling pyright, activate ruff for linting (TODO: how to implement pyright only for completion, and ruff for linting without having duplicate diagnostics??)
 -- lsp.configure('ruff_lsp', {
 --     settings = {
 --         arg = {
@@ -340,8 +342,9 @@ require("lspconfig").tailwindcss.setup({
 --     end
 --     }
 -- )
+
 --
---
+-- lsp.skip_server_setup({ "pyright" })
 lsp.skip_server_setup({ "ruff_lsp" })
 
 lsp.format_mapping("<leader>;f", {
@@ -360,9 +363,10 @@ local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		null_ls.builtins.formatting.prettier,
-        null_ls.builtins.formatting.black,
-        -- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
+		-- null_ls.builtins.formatting.prettier,
+		null_ls.builtins.formatting.prettierd,
+		null_ls.builtins.formatting.black,
+		-- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
 	},
 })
 
