@@ -9,4 +9,4 @@ require('guido.lsp')
 -- require('guido.vimtex')
 -- require('guido.quarto')
 -- require('guido.jupynium') -- dont need to call it to work
-require('guido.harpoon')
+-- require('guido.harpoon')

@@ -1,7 +1,10 @@
 return {
 
      'nvim-lua/plenary.nvim',
-     'tpope/vim-fugitive',
+     {
+        'tpope/vim-fugitive',
+        event="VeryLazy",
+    },
      'joosepalviste/nvim-ts-context-commentstring',
 
     -- telescope
@@ -71,8 +74,6 @@ return {
     --         }
     --     }
     -- },
-
-     { 'theprimeagen/harpoon' },
 
 
     ---- to cycle through tmux and vim panes with the same keybings 
