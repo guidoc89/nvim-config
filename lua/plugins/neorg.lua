@@ -6,6 +6,12 @@ return {
 		cmd = "Neorg", -- lazy load on command, allows to autocomplete :Neorg regardless of whether it's loaded yet!!
 		priority = 10, -- since treesitter is by default 50, need to make sure to load TS first, and then norg
 		event = "VeryLazy",
+		keys = {
+			{ "<leader>nt", "<cmd>Neorg journal today<cr>", mode = { "n" } },
+			{ "<leader>na", "<cmd>Neorg journal toc<cr>", mode = { "n" } },
+			{ "<leader>ni", "<cmd>Neorg index<cr>", mode = { "n" } },
+			{ "<leader>nr", "<cmd>Neorg return<cr>", mode = { "n" } },
+		},
 		dependencies = {
 			{ "nvim-lua/plenary.nvim" },
 		},

@@ -10,9 +10,9 @@ return {
 			direction = "float",
 			float_opts = {
 				border = "single",
-				-- width = <cambiar int>,
-				-- height = <cambiar int>,
-				winblend = 8,
+				width = 170,
+				height = 100,
+				winblend = 10,
 				zindex = 20,
 			},
 		})
@@ -43,7 +43,7 @@ return {
 				-- like `size`, width and height can be a number or function which is passed the current terminal
 				-- width = <value>,
 				-- height = <value>,
-				winblend = 3,
+				winblend = 10,
 				zindex = 10,
 			},
 		})
