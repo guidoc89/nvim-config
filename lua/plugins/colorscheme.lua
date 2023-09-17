@@ -94,42 +94,66 @@ vim.wo.cursorline = true
 --     end
 -- }
 
-
 -- Kanagawa
 return {
-    "rebelot/kanagawa.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-    },
-    config = function ()
-        require("kanagawa").setup{
-              compile = false,             -- enable compiling the colorscheme
-              undercurl = true,            -- enable undercurls
-              commentStyle = { italic = true },
-              functionStyle = {},
-              keywordStyle = { italic = true},
-              statementStyle = { bold = true },
-              typeStyle = {},
-              transparent = false,         -- do not set background color
-              dimInactive = false,         -- dim inactive window `:h hl-NormalNC`
-              terminalColors = true,       -- define vim.g.terminal_color_{0,17}
-              colors = {                   -- add/modify theme and palette colors
-                  palette = {},
-                  theme = { wave = {}, lotus = {}, dragon = {}, all = {} },
-              },
-              overrides = function(colors) -- add/modify highlights
-                  return {}
-              end,
-              theme = "wave",              -- Load "wave" theme when 'background' option is not set
-              background = {               -- map the value of 'background' option to a theme
-                  -- dark = "dragon",           -- try "dragon" !
-                  dark = "wave",           -- try "dragon" !
-                  light = "lotus"
-              },
-            }
-        vim.cmd("colorscheme kanagawa")
-    end
+	"rebelot/kanagawa.nvim",
+	lazy = false,
+	priority = 1000,
+	opts = {},
+	config = function()
+        -- local wave_colors = require("kanagawa.colors").setup({ theme = 'wave' })
+        -- local wave_palette = wave_colors.palette
+        -- local wave_theme = wave_colors.theme
+
+		require("kanagawa").setup({
+			compile = false, -- enable compiling the colorscheme
+			undercurl = true, -- enable undercurls
+			commentStyle = { italic = true },
+			functionStyle = {},
+			keywordStyle = { italic = true },
+			statementStyle = { bold = true },
+			typeStyle = {},
+			transparent = false, -- do not set background color
+			dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+			terminalColors = true, -- define vim.g.terminal_color_{0,17}
+			colors = { -- add/modify theme and palette colors
+					palette = {},
+					theme = {
+						wave = {
+							ui = {
+								-- bg_visual  = palette_colors.waveBlue2,
+								-- bg_visual = "#625e5a",  -- brow-nish
+								bg_visual = "#0d0c0c", -- black 
+							},
+						},
+						lotus = {},
+						dragon = {},
+						all = {},
+					},
+				},
+			overrides = function(colors) -- add/modify highlights
+				-- local theme = colors.theme
+				-- local palette = colors.palette
+				return {}
+				-- return {
+				-- 	Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+				-- 	PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+				-- 	PmenuSbar = { bg = theme.ui.bg_m1 },
+				-- 	PmenuThumb = { bg = theme.ui.bg_p2 },
+				-- }
+			end,
+			theme = "wave", -- Load "wave" theme when 'background' option is not set
+			-- theme = "lotus",              -- Load "wave" theme when 'background' option is not set
+			background = { -- map the value of 'background' option to a theme
+				-- dark = "dragon",           -- try "dragon" !
+				dark = "wave", -- try "dragon" !
+				light = "lotus",
+			},
+		})
+		vim.cmd("colorscheme kanagawa")
+        -- Invert colors when selecting text 
+        -- vim.cmd[[ highlight Visual guibg=NONE guifg=NONE gui=reverse ]]
+	end,
 }
 
 -- -- Gruvbox
