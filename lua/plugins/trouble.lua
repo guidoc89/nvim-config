@@ -8,6 +8,6 @@ return {
   -- refer to the configuration section below
  },
     keys = {
-            {"<leader>vrr","<cmd>TroubleToggle lsp_references<cr>", mode = {"n","v"}},
+            {"<leader>vr","<cmd>TroubleToggle lsp_references<cr>", mode = {"n","v"}},
     }
 }
