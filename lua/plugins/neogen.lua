@@ -1,6 +1,17 @@
 return {
 	"danymat/neogen",
-	opts = true,
+	-- opts = true,
+	opts = {
+        enabled=true,
+        languages={
+            python={
+                template={
+                    annotation_convention="numpydoc",
+                    -- annotation_convention="google_docstrings",
+                }
+            }
+        }
+    },
 	keys = {
 		{
 			"<leader>co",
