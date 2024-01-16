@@ -73,4 +73,4 @@ keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>"
 -- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
 
 -- Delette with backspace in insert mode
-keymap("n", "<BS>", "diw", opts)
+-- keymap("n", "<BS>", "diw", opts)

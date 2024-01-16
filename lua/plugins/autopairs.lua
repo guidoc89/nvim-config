@@ -1,7 +1,14 @@
 return {
-    'windwp/nvim-autopairs',
-    config = function()
-        require('nvim-autopairs').setup {}
-    end,
-    event="VeryLazy",
+	"windwp/nvim-autopairs",
+	opts = {
+		filetypes = {
+			"html",
+			"htmldjango",
+			"javascript",
+			"javascriptreact",
+			"typescript",
+			"typescriptreact",
+		},
+	},
+	event = "InsertEnter",
 } -- to easily surround selections with delimiters
