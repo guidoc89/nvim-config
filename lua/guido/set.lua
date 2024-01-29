@@ -23,6 +23,10 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.g.mapleader = " "
 
+-- Set python host
+vim.g.python3_host_prog =vim.fn.expand(  "~/.config/nvim/venv/bin/python3")
+
 vim.cmd("set signcolumn=yes:1")
 -- vim.opt.path:append { '**' } -- finding files, search down into subdirs
 -- vim.opt.wildignore:append { '*/node_modules/*' }
+--

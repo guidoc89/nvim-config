@@ -35,11 +35,11 @@ return {
             symbols_in_winbar = {
                 enable = true,
             },
-            outline = {
-                keys ={
-                    toggle_or_jump = "<CR>",
-                }
-            }
+            -- outline = {
+            --     keys ={
+            --         toggle_or_jump = "<CR>",
+            --     }
+            -- }
 		})
 
         -- require("lspsaga.symbol.winbar").get_bar()
@@ -47,7 +47,7 @@ return {
 	event = "LspAttach",
     keys = {
         {"<leader>k", "<cmd>Lspsaga peek_definition<cr>", mode={"n"}},
-        {"<leader>u", "<cmd>Lspsaga outline<cr>", mode={"n"}},
+        -- {"<leader>u", "<cmd>Lspsaga outline<cr>", mode={"n"}},
     },
 	dependencies = {
 		"nvim-treesitter/nvim-treesitter", -- optional

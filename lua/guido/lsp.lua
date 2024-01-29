@@ -50,6 +50,8 @@ lsp.ensure_installed({
 
 local lspkind = require("lspkind")
 local cmp = require("cmp")
+
+
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
@@ -60,13 +62,13 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
 	sources = {
-		{ name = "path" },
-		{ name = "nvim_lsp", keyword_length = 1 },
-		{ name = "buffer", keyword_length = 3 },
-		{ name = "luasnip", keyword_length = 2 },
-		{ name = "otter" },
-		{ name = "latex" },
-		{ name = "neorg" },
+		{ name = "path", max_item_count = 2  },
+		{ name = "nvim_lsp", keyword_length = 2, max_item_count = 4 },
+		{ name = "buffer", keyword_length = 3, max_item_count = 4  },
+		{ name = "luasnip", keyword_length = 2,max_item_count = 4  },
+		{ name = "otter", max_item_count = 5  },
+		{ name = "latex", max_item_count = 5  },
+		{ name = "neorg", max_item_count = 5  },
 	},
 	mapping = cmp_mappings,
 	formatting = {
@@ -148,7 +150,7 @@ lsp.configure("lua_ls", {
 	},
 })
 
--- Markdown config (TODO: does it work?)
+-- Markdown config 
 lsp.configure("marksman", {
 	settings = {
 		completions = {
@@ -166,6 +168,24 @@ lsp.configure("marksman", {
 		debounce_text_changes = 200,
 	},
 })
+
+lsp.configure("html", {
+	-- settings = {
+	-- 	completions = {
+    --
+	-- 		completeFunciontCalls = true,
+	-- 	},
+	-- },
+	filetypes = {
+		"html",
+		"htmldjango",
+		-- "python",
+	},
+	-- flags = {
+	-- 	debounce_text_changes = 200,
+	-- },
+})
+
 
 -- Tailwind
 require("lspconfig").tailwindcss.setup({
@@ -195,6 +215,8 @@ require("lspconfig").tailwindcss.setup({
 	settings = {
 		includeLanguages = {
 			typescript = "javascript",
+			javascript = "javascript",
+			javascriptreact = "javascriptreact",
 			typescriptreact = "javascript",
 			["html-eex"] = "html",
 			["phoenix-heex"] = "html",
@@ -230,6 +252,7 @@ require("lspconfig").tailwindcss.setup({
 		"scss",
 		"sass",
 		"html",
+		"htmldjango",
 		"heex",
 		"elixir",
 		"eruby",
@@ -241,71 +264,6 @@ require("lspconfig").tailwindcss.setup({
 	},
 })
 
--- Tailwind
--- lsp.configure('tailwindcss', {
---     cmd= { "tailwindcss-language-server", "--stdio" },
---      root_dir = require('lspconfig.util').root_pattern('tailwind.config.js', 'tailwind.config.ts', 'postcss.config.js', 'postcss.config.ts', 'package.json', 'node_modules', '.git'),
--- 	init_options = {
--- 		userLanguages = {
--- 			elixir = "phoenix-heex",
--- 			eruby = "erb",
--- 			heex = "phoenix-heex",
--- 			svelte = "html",
--- 		},
--- 	},
--- 	handlers = {
--- 		["tailwindcss/getConfiguration"] = function(_, _, params, _, bufnr, _)
--- 			vim.lsp.buf_notify(bufnr, "tailwindcss/getConfigurationResponse", { _id = params._id })
--- 		end,
--- 	},
--- 	settings = {
--- 		includeLanguages = {
--- 			typescript = "javascript",
--- 			typescriptreact = "javascript",
--- 			["html-eex"] = "html",
--- 			["phoenix-heex"] = "html",
--- 			heex = "html",
--- 			eelixir = "html",
--- 			elm = "html",
--- 			erb = "html",
--- 			svelte = "html",
--- 		},
--- 		tailwindCSS = {
--- 			lint = {
--- 				cssConflict = "warning",
--- 				invalidApply = "error",
--- 				invalidConfigPath = "error",
--- 				invalidScreen = "error",
--- 				invalidTailwindDirective = "error",
--- 				invalidVariant = "error",
--- 				recommendedVariantOrder = "warning",
--- 			},
--- 			experimental = {
--- 				classRegex = {
--- 					[[class= "([^"]*)]],
--- 					[[class: "([^"]*)]],
--- 					'~H""".*class="([^"]*)".*"""',
--- 				},
--- 			},
--- 			validate = true,
--- 		},
--- 	},
--- 	filetypes = {
---         "python", -- ex: for Dash classes
--- 		"css",
--- 		"scss",
--- 		"sass",
--- 		"html",
--- 		"heex",
--- 		"elixir",
--- 		"eruby",
--- 		"javascript",
--- 		"javascriptreact",
--- 		"typescript",
--- 		"typescriptreact",
--- 		"svelte",
--- 	},
--- })
 
 -- Pyright disabling (for linting)
 lsp.configure("pyright", {
@@ -345,6 +303,7 @@ lsp.configure("pyright", {
 
 --
 -- lsp.skip_server_setup({ "pyright" })
+-- lsp.skip_server_setup({ "ruff_lsp", "eslint" })
 lsp.skip_server_setup({ "ruff_lsp" })
 
 lsp.format_mapping("<leader>;f", {
@@ -353,7 +312,8 @@ lsp.format_mapping("<leader>;f", {
 		timeout_ms = 10000,
 	},
 	servers = {
-		["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python" },
+		-- ["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python", "htmldjango", "html" },
+		["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python", "htmldjango", "html" },
 	},
 })
 
@@ -366,6 +326,8 @@ null_ls.setup({
 		-- null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.black,
+		null_ls.builtins.formatting.djhtml,
+		null_ls.builtins.formatting.djlint,
 		-- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
 	},
 })
@@ -386,3 +348,5 @@ vim.diagnostic.config({
 		prefix = "",
 	},
 })
+
+

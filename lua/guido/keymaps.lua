@@ -51,7 +51,7 @@ keymap("n", "<S-Tab>", ":tabprevious<CR>", term_opts)
 keymap("v", "<", "<gv", term_opts)
 keymap("v", ">", ">gv", term_opts)
 
--- Tab switch buffer
+-- Switch buffer
 keymap("n", "L", ":bnext<CR>", term_opts)
 keymap("n", "H", ":bprevious<CR>", term_opts)
 
@@ -65,8 +65,7 @@ keymap("n", "-", "<C-x>", opts)
 
 -- Telescope
 keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files({no_ignore = false, hidden = true})<cr>", opts)
-keymap("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
-keymap("n", "<leader>b", "<cmd>lua require'telescope.builtin'.buffers()<cr>", opts)
+-- keymap("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", opts)
 
 -- Nvim tree

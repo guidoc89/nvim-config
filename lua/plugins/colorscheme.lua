@@ -3,56 +3,61 @@ vim.opt.background = "dark"
 vim.o.termguicolors = true -- is this even necessary?
 vim.wo.cursorline = true
 
--- -- Catppuccin
--- return {
---     "catppuccin/nvim",
---     lazy = false,
---     priority = 1000,
---      opts = {
---     integrations = {
---       alpha = true,
---       cmp = true,
---       gitsigns = true,
---       illuminate = true,
---       indent_blankline = { enabled = true },
---       lsp_trouble = true,
---       mason = true,
---       mini = true,
---       native_lsp = {
---         enabled = true,
---         underlines = {
---           errors = { "undercurl" },
---           hints = { "undercurl" },
---           warnings = { "undercurl" },
---           information = { "undercurl" },
---         },
---       },
---       -- navic = { enabled = true, custom_bg = "lualine" },
---       neotest = true,
---       neotree = true,
---       semantic_tokens = true,
---       telescope = true,
---       treesitter = true,
---     },
---   },
---     config = function()
---         require("catppuccin").setup({
---             -- transparent_background = "false",
---     --         custom_highlights = function(colors)
---     --     return {
---     --         -- Comment = { fg = colors.flamingo },
---     --         TabLineSel = { bg = colors.pink },
---     --         CmpBorder = { fg = colors.surface2 },
---     --         Pmenu = { bg = colors.none },
---     --     }
---     -- end
---         })
---         vim.cmd.colorscheme "catppuccin-mocha"
---         -- vim.cmd.colorscheme "catppuccin-latte"
---         -- vim.cmd.colorscheme "catppuccin-macchiato"
---         -- vim.cmd.colorscheme "catppuccin-frappe"
---     end
--- }
+-- Catppuccin
+return {
+    "catppuccin/nvim",
+    lazy = false,
+    priority = 1000,
+     opts = {
+    integrations = {
+      alpha = true,
+      cmp = true,
+      gitsigns = true,
+      illuminate = {
+                enabled = true,
+                lsp = false,
+            },
+      indent_blankline = { enabled = true },
+      lsp_trouble = true,
+      neogit = true,
+      mason = true,
+        flash= true,
+      mini = true,
+      native_lsp = {
+        enabled = true,
+        underlines = {
+          errors = { "undercurl" },
+          hints = { "undercurl" },
+          warnings = { "undercurl" },
+          information = { "undercurl" },
+        },
+      },
+      -- navic = { enabled = true, custom_bg = "lualine" },
+      neotest = true,
+      neotree = true,
+      semantic_tokens = true,
+      telescope = true,
+      treesitter = true,
+    },
+  },
+    config = function()
+        require("catppuccin").setup({
+            transparent_background = "true",
+    --         custom_highlights = function(colors)
+    --     return {
+    --         -- Comment = { fg = colors.flamingo },
+    --         TabLineSel = { bg = colors.pink },
+    --         CmpBorder = { fg = colors.surface2 },
+    --         Pmenu = { bg = colors.none },
+    --     }
+    -- end
+        })
+        vim.cmd.colorscheme "catppuccin-mocha"
+        -- vim.cmd.colorscheme "catppuccin-latte"
+        -- vim.cmd.colorscheme "catppuccin-macchiato"
+        -- vim.cmd.colorscheme "catppuccin-frappe"
+    end
+}
 
 -- -- Oxycarbon
 -- return {
@@ -82,7 +87,7 @@ vim.wo.cursorline = true
 --             },
 --         }
 --         -- vim.cmd[[colorscheme tokyonight-moon]]
---         vim.cmd[[colorscheme tokyonight]]
+--         vim.cmd[[colorscheme tokyonight-moon]]
 --     end
 -- }
 
@@ -94,67 +99,72 @@ vim.wo.cursorline = true
 --     end
 -- }
 
--- Kanagawa
-return {
-	"rebelot/kanagawa.nvim",
-	lazy = false,
-	priority = 1000,
-	opts = {},
-	config = function()
-        -- local wave_colors = require("kanagawa.colors").setup({ theme = 'wave' })
-        -- local wave_palette = wave_colors.palette
-        -- local wave_theme = wave_colors.theme
-
-		require("kanagawa").setup({
-			compile = false, -- enable compiling the colorscheme
-			undercurl = true, -- enable undercurls
-			commentStyle = { italic = true },
-			functionStyle = {},
-			keywordStyle = { italic = true },
-			statementStyle = { bold = true },
-			typeStyle = {},
-			transparent = false, -- do not set background color
-			dimInactive = false, -- dim inactive window `:h hl-NormalNC`
-			terminalColors = true, -- define vim.g.terminal_color_{0,17}
-			colors = { -- add/modify theme and palette colors
-					palette = {},
-					theme = {
-						wave = {
-							ui = {
-								-- bg_visual  = palette_colors.waveBlue2,
-								-- bg_visual = "#625e5a",  -- brow-nish
-								bg_visual = "#0d0c0c", -- black 
-							},
-						},
-						lotus = {},
-						dragon = {},
-						all = {},
-					},
-				},
-			overrides = function(colors) -- add/modify highlights
-				-- local theme = colors.theme
-				-- local palette = colors.palette
-				return {}
-				-- return {
-				-- 	Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
-				-- 	PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
-				-- 	PmenuSbar = { bg = theme.ui.bg_m1 },
-				-- 	PmenuThumb = { bg = theme.ui.bg_p2 },
-				-- }
-			end,
-			theme = "wave", -- Load "wave" theme when 'background' option is not set
-			-- theme = "lotus",              -- Load "wave" theme when 'background' option is not set
-			background = { -- map the value of 'background' option to a theme
-				-- dark = "dragon",           -- try "dragon" !
-				dark = "wave", -- try "dragon" !
-				light = "lotus",
-			},
-		})
-		vim.cmd("colorscheme kanagawa")
-        -- Invert colors when selecting text 
-        -- vim.cmd[[ highlight Visual guibg=NONE guifg=NONE gui=reverse ]]
-	end,
-}
+-- -- Kanagawa
+-- return {
+-- 	"rebelot/kanagawa.nvim",
+-- 	lazy = false,
+-- 	priority = 1000,
+-- 	opts = {},
+-- 	config = function()
+-- 		-- local wave_colors = require("kanagawa.colors").setup({ theme = 'wave' })
+-- 		-- local wave_palette = wave_colors.palette
+-- 		-- local wave_theme = wave_colors.theme
+-- 		require("kanagawa").setup({
+-- 			compile = false, -- enable compiling the colorscheme
+-- 			undercurl = true, -- enable undercurls
+-- 			commentStyle = { italic = true },
+-- 			functionStyle = {},
+-- 			keywordStyle = { italic = true },
+-- 			statementStyle = { bold = true },
+-- 			typeStyle = {},
+-- 			transparent = true, -- do not set background color
+-- 			dimInactive = false, -- dim inactive window `:h hl-NormalNC`
+-- 			terminalColors = true, -- define vim.g.terminal_color_{0,17}
+-- 			colors = { -- add/modify theme and palette colors
+-- 				palette = {},
+-- 				theme = {
+-- 					-- wave = {
+-- 					-- 	ui = {
+-- 					-- 		-- bg_visual  = palette_colors.waveBlue2,
+-- 					-- 		-- bg_visual = "#625e5a",  -- brow-nish
+-- 					-- 		bg_visual = "#0d0c0c", -- black
+-- 					-- 	},
+-- 					-- },
+-- 					lotus = {},
+-- 					dragon = {
+-- 						ui = {
+-- 							-- bg_visual  = palette_colors.waveBlue2,
+-- 							-- bg_visual = "#625e5a",  -- brow-nish
+-- 							-- bg_visual = "#0d0c0c", -- black
+-- 						},
+-- 					},
+-- 					all = {},
+-- 				},
+-- 			},
+-- 			overrides = function(colors) -- add/modify highlights
+-- 				-- local theme = colors.theme
+-- 				-- local palette = colors.palette
+-- 				return {}
+-- 				-- return {
+-- 				-- 	Pmenu = { fg = theme.ui.shade0, bg = theme.ui.bg_p1 }, -- add `blend = vim.o.pumblend` to enable transparency
+-- 				-- 	PmenuSel = { fg = "NONE", bg = theme.ui.bg_p2 },
+-- 				-- 	PmenuSbar = { bg = theme.ui.bg_m1 },
+-- 				-- 	PmenuThumb = { bg = theme.ui.bg_p2 },
+-- 				-- }
+-- 			end,
+-- 			theme = "wave", -- Load "wave" theme when 'background' option is not set
+-- 			-- theme = "lotus",              -- Load "wave" theme when 'background' option is not set
+-- 			background = { -- map the value of 'background' option to a theme
+-- 				-- dark = "dragon", -- try "dragon" !
+-- 				dark = "wave", -- try "dragon" !
+-- 				light = "lotus",
+-- 			},
+-- 		})
+-- 		vim.cmd("colorscheme kanagawa")
+-- 		-- Invert colors when selecting text
+-- 		-- vim.cmd[[ highlight Visual guibg=NONE guifg=NONE gui=reverse ]]
+-- 	end,
+-- }
 
 -- -- Gruvbox
 -- return {
@@ -218,7 +228,7 @@ return {
 -- 				filetypes = {}, -- Specify which filetypes get the contrasted (darker) background
 -- 			},
 -- 			disable = {
--- 				background = false,
+-- 				background = true,
 -- 			},
 -- 		})
 -- 		-- vim.cmd.colorscheme "material"
@@ -257,9 +267,9 @@ return {
 --     -- config=true,
 --     config = function ()
 --         -- require("everforest").setup{}
---         vim.cmd ("let g:everforest_background = 'hard'")
+--         -- vim.cmd ("let g:everforest_background = 'hard'")
 --         -- vim.cmd ("let g:everforest_background = 'soft'")
---         -- vim.cmd ("let g:everforest_transparent_background = 1")
+--         vim.cmd ("let g:everforest_transparent_background = 1")
 --         -- vim.cmd ("let g:everforest_background = 'medium'")
 --         -- vim.cmd ("let g:everforest_background = 'soft'")
 -- 		vim.cmd("colorscheme everforest")

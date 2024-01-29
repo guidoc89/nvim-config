@@ -1,5 +1,6 @@
 -- return {}
 
+-- return {}
 
 return {
     'NeogitOrg/neogit',

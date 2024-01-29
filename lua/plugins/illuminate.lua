@@ -17,9 +17,6 @@ return {
       end, { desc = dir:sub(1, 1):upper() .. dir:sub(2) .. " Reference", buffer = buffer })
     end
 
-    map("]]", "next")
-    map("[[", "prev")
-
     -- also set it after loading ftplugins, since a lot overwrite [[ and ]]
     vim.api.nvim_create_autocmd("FileType", {
       callback = function()
