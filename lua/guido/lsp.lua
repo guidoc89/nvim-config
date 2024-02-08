@@ -62,10 +62,10 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
 	sources = {
-		{ name = "path", max_item_count = 2  },
-		{ name = "nvim_lsp", keyword_length = 2, max_item_count = 4 },
-		{ name = "buffer", keyword_length = 3, max_item_count = 4  },
-		{ name = "luasnip", keyword_length = 2,max_item_count = 4  },
+		{ name = "path", max_item_count = 5  },
+		{ name = "nvim_lsp", keyword_length = 2, max_item_count = 6 },
+		{ name = "buffer", keyword_length = 3, max_item_count = 6  },
+		{ name = "luasnip", keyword_length = 2,max_item_count = 6  },
 		{ name = "otter", max_item_count = 5  },
 		{ name = "latex", max_item_count = 5  },
 		{ name = "neorg", max_item_count = 5  },
