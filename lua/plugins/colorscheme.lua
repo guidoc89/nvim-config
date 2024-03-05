@@ -41,17 +41,18 @@ return {
     },
   },
     config = function()
-        require("catppuccin").setup({
-            transparent_background = "true",
-    --         custom_highlights = function(colors)
-    --     return {
-    --         -- Comment = { fg = colors.flamingo },
-    --         TabLineSel = { bg = colors.pink },
-    --         CmpBorder = { fg = colors.surface2 },
-    --         Pmenu = { bg = colors.none },
-    --     }
-    -- end
-        })
+    --     require("catppuccin").setup({
+    --         transparent_background = true,
+    --         -- transparent_background = "false",
+    -- --         custom_highlights = function(colors)
+    -- --     return {
+    -- --         -- Comment = { fg = colors.flamingo },
+    -- --         TabLineSel = { bg = colors.pink },
+    -- --         CmpBorder = { fg = colors.surface2 },
+    -- --         Pmenu = { bg = colors.none },
+    -- --     }
+    -- -- end
+    --     })
         vim.cmd.colorscheme "catppuccin-mocha"
         -- vim.cmd.colorscheme "catppuccin-latte"
         -- vim.cmd.colorscheme "catppuccin-macchiato"
@@ -59,7 +60,7 @@ return {
     end
 }
 
--- -- Oxycarbon
+-- Oxycarbon
 -- return {
 --   "nyoom-engineering/oxocarbon.nvim",
 --     config = function()
@@ -79,7 +80,7 @@ return {
 --     -- },
 --     config = function()
 --         require("tokyonight").setup{
---             transparent = true,
+--             transparent = false,
 --             style = "moon",
 --             styles = {
 --                 -- sidebars = "transparent",
@@ -117,7 +118,7 @@ return {
 -- 			keywordStyle = { italic = true },
 -- 			statementStyle = { bold = true },
 -- 			typeStyle = {},
--- 			transparent = true, -- do not set background color
+-- 			transparent = false, -- do not set background color
 -- 			dimInactive = false, -- dim inactive window `:h hl-NormalNC`
 -- 			terminalColors = true, -- define vim.g.terminal_color_{0,17}
 -- 			colors = { -- add/modify theme and palette colors
@@ -152,12 +153,13 @@ return {
 -- 				-- 	PmenuThumb = { bg = theme.ui.bg_p2 },
 -- 				-- }
 -- 			end,
--- 			theme = "wave", -- Load "wave" theme when 'background' option is not set
--- 			-- theme = "lotus",              -- Load "wave" theme when 'background' option is not set
+-- 			theme = "wave",  -- Load "wave" theme when 'background' option is not set
+-- 			-- theme = "lotus",  
 -- 			background = { -- map the value of 'background' option to a theme
--- 				-- dark = "dragon", -- try "dragon" !
--- 				dark = "wave", -- try "dragon" !
+-- 				dark = "dragon", -- try "dragon" !
+-- 				-- dark = "wave", -- try "dragon" !
 -- 				light = "lotus",
+-- 				-- dark = "lotus",
 -- 			},
 -- 		})
 -- 		vim.cmd("colorscheme kanagawa")
@@ -166,13 +168,28 @@ return {
 -- 	end,
 -- }
 
+
+-- -- -- Solarized osaka
+-- return {
+--   "craftzdog/solarized-osaka.nvim",
+--   lazy = false,
+--   priority = 8000,
+--     config = function()
+--         require("solarized-osaka").setup({
+--             transparent = false,
+--         })
+--         vim.cmd[[colorscheme solarized-osaka]]
+--     end,
+-- }
+
+
 -- -- Gruvbox
 -- return {
 -- 	"ellisonleao/gruvbox.nvim",
 -- 	priority = 1000,
 -- 	config = function()
 -- 		require("gruvbox").setup({
---             transparent_mode=true,
+--             transparent_mode=false,
 -- 		})
 --         vim.cmd[[colorscheme gruvbox]]
 -- 	end,
@@ -213,8 +230,8 @@ return {
 -- -- Material
 -- -- vim.g.material_style = "deep ocean"
 -- -- vim.g.material_style = "darker"
--- vim.g.material_style = "palenight"
--- -- vim.g.material_style = "oceanic"
+-- -- vim.g.material_style = "palenight"
+-- vim.g.material_style = "oceanic"
 -- return {
 -- 	"marko-cerovac/material.nvim",
 -- 	config = function()
@@ -243,7 +260,7 @@ return {
 -- 	config = function()
 -- 		require("nightfox").setup({
 -- 			options = {
--- 				transparent = false,
+-- 				transparent = true,
 -- 				styles = {
 -- 					comments = "italic",
 -- 					keywords = "bold",
