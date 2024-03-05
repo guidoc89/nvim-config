@@ -19,6 +19,8 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 vim.keymap.set("n", "<C-p>", builtin.git_files, {})
 vim.keymap.set("n", "<C-c>", builtin.git_bcommits, {})
 vim.keymap.set("n", "<leader>ll", builtin.git_commits, {})
+-- To add references to Telescope (previously was with Trouble in the quickfix)
+vim.keymap.set("n", "<leader>vr", builtin.lsp_references, {})
 
 telescope.setup({
 	defaults = {
