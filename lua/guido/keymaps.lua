@@ -10,7 +10,7 @@ vim.g.maplocalleader = " "
 vim.g.mapleader = " "
 
 -- No hl
-keymap("n", "<Leader>h", "set hlsearch!<CR>", opts)
+keymap("n", "<leader>h", "set hlsearch!<CR>", opts)
 
 -- To yank from and to system clipboard
 keymap("v", "<leader>y", '"+y', opts)
@@ -64,8 +64,6 @@ keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
 
 -- Telescope
-keymap("n", "<leader>f", "<cmd>lua require'telescope.builtin'.find_files({no_ignore = false, hidden = true})<cr>", opts)
--- keymap("n", "<leader>r", "<cmd>lua require'telescope.builtin'.live_grep()<cr>", opts)
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", opts)
 
 -- Nvim tree

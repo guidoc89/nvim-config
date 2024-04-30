@@ -10,9 +10,9 @@ return {
 			direction = "float",
 			float_opts = {
 				border = "single",
-				width = 170,
+				width = 270,
 				height = 100,
-				winblend = 10,
+				-- winblend = 10,
 				zindex = 20,
 			},
 		})
@@ -28,7 +28,7 @@ return {
 			hide_numbers = true,
 			insert_mappings = true,
 			autochdir = false,
-			shading_factor = 20,
+			-- shading_factor = 20,
 			size = 20,
 			-- direction = "horizontal",
 			direction = "float",
@@ -43,7 +43,7 @@ return {
 				-- like `size`, width and height can be a number or function which is passed the current terminal
 				-- width = <value>,
 				-- height = <value>,
-				winblend = 10,
+				-- winblend = 10,
 				zindex = 10,
 			},
 		})

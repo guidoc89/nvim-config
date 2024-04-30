@@ -19,8 +19,9 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 vim.keymap.set("n", "<C-p>", builtin.git_files, {})
 vim.keymap.set("n", "<C-c>", builtin.git_bcommits, {})
 vim.keymap.set("n", "<leader>ll", builtin.git_commits, {})
--- To add references to Telescope (previously was with Trouble in the quickfix)
+vim.keymap.set("n", "<leader>lb", builtin.git_branches, {})
 vim.keymap.set("n", "<leader>vr", builtin.lsp_references, {})
+vim.keymap.set("n", "gt", builtin.lsp_type_definitions, {})
 
 telescope.setup({
 	defaults = {
@@ -83,9 +84,9 @@ end)
 vim.keymap.set("n", "<leader>ss", function()
 	builtin.lsp_document_symbols()
 end)
--- vim.keymap.set("n", "<leader>;", function()
--- 	builtin.resume()
--- end)
+vim.keymap.set("n", "<leader>f", function()
+	builtin.find_files({no_ignore=false, hidden=true})
+end)
 vim.keymap.set("n", "<leader>dl", function()
 	builtin.diagnostics()
 end)
@@ -134,21 +135,6 @@ telescope.setup({
 				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
 				["<C-l>"] = actions.complete_tag,
 				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-
-				-- ["<leader>ss"] = util.telescope("lsp_document_symbols", {
-				--   symbols = {
-				--     "Class",
-				--     "Function",
-				--     "Method",
-				--     "Constructor",
-				--     "Interface",
-				--     "Module",
-				--     "Struct",
-				--     "Trait",
-				--     "Field",
-				--     "Property",
-				--   },
-				-- }),
 			},
 		},
 	},
@@ -206,7 +192,7 @@ vim.keymap.set("n", "<leader>sf", function()
 		respect_gitignore = false,
 		hidden = true,
 		grouped = true,
-		previewer = false,
+		previewer = true,
 		initial_mode = "normal",
 		layout_config = { height = 40 },
 	})

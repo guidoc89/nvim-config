@@ -51,7 +51,6 @@ lsp.ensure_installed({
 local lspkind = require("lspkind")
 local cmp = require("cmp")
 
-
 local cmp_select = { behavior = cmp.SelectBehavior.Select }
 local cmp_mappings = lsp.defaults.cmp_mappings({
 	["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
@@ -62,13 +61,13 @@ local cmp_mappings = lsp.defaults.cmp_mappings({
 
 lsp.setup_nvim_cmp({
 	sources = {
-		{ name = "path" },
-		{ name = "nvim_lsp", keyword_length = 2, max_item_count = 6 },
-		{ name = "buffer", keyword_length = 3, max_item_count = 6  },
-		{ name = "luasnip", keyword_length = 2,max_item_count = 6  },
-		{ name = "otter", max_item_count = 5  },
-		{ name = "latex", max_item_count = 5  },
-		{ name = "neorg", max_item_count = 5  },
+		{ name = "path", keyword_length = 1, max_item_count = 5 },
+		{ name = "nvim_lsp", keyword_length = 1, max_item_count = 8 },
+		{ name = "buffer", keyword_length = 3, max_item_count = 6 },
+		{ name = "luasnip", keyword_length = 1, max_item_count = 6 },
+		{ name = "otter", max_item_count = 5 },
+		{ name = "latex", max_item_count = 5 },
+		{ name = "neorg", max_item_count = 5 },
 	},
 	mapping = cmp_mappings,
 	formatting = {
@@ -113,7 +112,7 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
 	end, opts)
-	vim.keymap.set("n", "<leader>vws", function()
+	vim.keymap.set("n", "<leader>ws", function()
 		vim.lsp.buf.workspace_symbol()
 	end, opts)
 	vim.keymap.set("n", "<leader>vd", function()
@@ -150,7 +149,7 @@ lsp.configure("lua_ls", {
 	},
 })
 
--- Markdown config 
+-- Markdown config
 lsp.configure("marksman", {
 	settings = {
 		completions = {
@@ -172,7 +171,7 @@ lsp.configure("marksman", {
 lsp.configure("html", {
 	-- settings = {
 	-- 	completions = {
-    --
+	--
 	-- 		completeFunciontCalls = true,
 	-- 	},
 	-- },
@@ -185,7 +184,6 @@ lsp.configure("html", {
 	-- 	debounce_text_changes = 200,
 	-- },
 })
-
 
 -- Tailwind
 require("lspconfig").tailwindcss.setup({
@@ -264,7 +262,6 @@ require("lspconfig").tailwindcss.setup({
 	},
 })
 
-
 -- Pyright disabling (for linting)
 lsp.configure("pyright", {
 	capabilities = (function()
@@ -313,7 +310,16 @@ lsp.format_mapping("<leader>;f", {
 	},
 	servers = {
 		-- ["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python", "htmldjango", "html" },
-		["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python", "htmldjango", "html" },
+		["null-ls"] = {
+			"javascript",
+			"typescript",
+			"lua",
+			"typescriptreact",
+			"javascriptreact",
+			"python",
+			"htmldjango",
+			"html",
+		},
 	},
 })
 
@@ -348,5 +354,3 @@ vim.diagnostic.config({
 		prefix = "",
 	},
 })
-
-

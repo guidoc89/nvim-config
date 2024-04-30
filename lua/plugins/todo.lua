@@ -10,6 +10,7 @@ return {
                 "--glob=!venv/",
                 "--glob=!windows_venv/",
                 "--glob=!*.ipynb",
+                "--glob=!node_modules*",
                 "--color=never",
                 "--no-heading",
                 "--with-filename",

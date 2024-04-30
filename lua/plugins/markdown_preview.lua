@@ -1,19 +1,19 @@
-return {}
+-- return {}
 
--- return {
---     {
---     "iamcco/markdown-preview.nvim",
---     build = "cd app && npm install",
---     init = function()
---         vim.g.mkdp_filetypes = { "markdown" } end,
---     ft = { "markdown" },
---     event="VeryLazy",
---     },
---     {
---         "ellisonleao/glow.nvim",
---         config = function()
---             require("glow").setup()
---         end,
---         event="VeryLazy",
---     },
--- }
+return {
+    {
+    "iamcco/markdown-preview.nvim",
+    build = "cd app && npm install",
+    init = function()
+        vim.g.mkdp_filetypes = { "markdown" } end,
+    ft = { "markdown" },
+    event="VeryLazy",
+    },
+    {
+        "ellisonleao/glow.nvim",
+        config = function()
+            require("glow").setup()
+        end,
+        event="VeryLazy",
+    },
+}

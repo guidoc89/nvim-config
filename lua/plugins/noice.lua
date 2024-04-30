@@ -6,16 +6,16 @@ return {}
 -- 	event = "VeryLazy",
 -- 	opts = {
 -- 		views = {
--- 			cmdline_popup = {
--- 				position = {
--- 					row = 5,
--- 					col = "50%",
--- 				},
--- 			},
+-- 			-- cmdline_popup = {
+-- 			-- 	position = {
+-- 			-- 		row = 5,
+-- 			-- 		col = "50%",
+-- 			-- 	},
+-- 			-- },
 -- 		},
 -- 		lsp = {
 -- 			progress = {
--- 				enabled = false,
+-- 				enabled = true,
 -- 			},
 -- 			override = {
 -- 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
@@ -35,11 +35,12 @@ return {}
 -- 		messages = {
 -- 			enabled = false,
 -- 		},
--- 		popupmenu = {
--- 			enabled = false,
--- 		},
+-- 		-- popupmenu = {
+-- 		--           backend= "cmp",
+-- 		-- 	enabled = true,
+-- 		-- },
 -- 		notify = {
--- 			enabled = false,
+-- 			enabled = true,
 -- 		},
 -- 	},
 -- 	dependencies = {
