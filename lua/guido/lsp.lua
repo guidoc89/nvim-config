@@ -329,11 +329,11 @@ local null_ls = require("null-ls")
 null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
-		-- null_ls.builtins.formatting.prettier,
 		null_ls.builtins.formatting.prettierd,
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.djhtml,
 		null_ls.builtins.formatting.djlint,
+		null_ls.builtins.formatting.rust_analyzer, -- TODO: this doesnt work, try to check the real source (maybe rustanalyze?)
 		-- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
 	},
 })

@@ -20,6 +20,7 @@ return {
         {"]g", ":Gitsigns next_hunk<CR>", mode={"n"}},
         {"[g", ":Gitsigns prev_hunk<CR>", mode={"n"}},
         {"<leader>ghd", ":Gitsigns diffthis<CR>", mode={"n"}},
+        {"<leader>gel", ":Gitsigns refresh<CR>", mode={"n"}},
         {"<leader>ghp", ":Gitsigns preview_hunk<CR>", mode={"n"}},
         {"<leader>ghi", ":Gitsigns preview_hunk_inline<CR>", mode={"n"}},
         {"<leader>gha", ":Gitsigns stage_hunk<CR>", mode={"n"}},
