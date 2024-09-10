@@ -29,4 +29,20 @@ vim.g.python3_host_prog =vim.fn.expand(  "~/.config/nvim/venv/bin/python3")
 vim.cmd("set signcolumn=yes:1")
 -- vim.opt.path:append { '**' } -- finding files, search down into subdirs
 -- vim.opt.wildignore:append { '*/node_modules/*' }
---
+
+
+-- Clipboard in WSL
+if vim.fn.has('wsl') == 1 then
+    vim.g.clipboard = {
+        name = 'WslClipboard',
+        copy = {
+            ['+'] = 'clip.exe',
+            ['*'] = 'clip.exe',
+        },
+        paste = {
+            ['+'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+            ['*'] = 'powershell.exe -c [Console]::Out.Write($(Get-Clipboard -Raw).tostring().replace("`r", ""))',
+        },
+        cache_enabled = 0,
+    }
+end
