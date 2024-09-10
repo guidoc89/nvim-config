@@ -109,6 +109,15 @@ lsp.on_attach(function(client, bufnr)
 	vim.keymap.set("n", "gd", function()
 		vim.lsp.buf.definition()
 	end, opts)
+
+	vim.keymap.set("n", "<leader>I", function()
+		if vim.lsp.inlay_hint.is_enabled() then
+			vim.lsp.inlay_hint.enable(false, { 0 })
+		else
+			vim.lsp.inlay_hint.enable(true, { 0 })
+		end
+	end, opts)
+
 	vim.keymap.set("n", "K", function()
 		vim.lsp.buf.hover()
 	end, opts)
@@ -333,7 +342,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.djhtml,
 		null_ls.builtins.formatting.djlint,
-		null_ls.builtins.formatting.rust_analyzer, -- TODO: this doesnt work, try to check the real source (maybe rustanalyze?)
+		-- null_ls.builtins.formatting.rust_analyzer, -- TODO: this doesnt work, try to check the real source (maybe rustanalyze?)
 		-- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
 	},
 })
