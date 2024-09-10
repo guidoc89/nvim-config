@@ -7,6 +7,7 @@ return {
 		local lazygit = Terminal:new({
 			cmd = "lazygit",
 			hidden = true,
+			-- direction = "horizontal",
 			direction = "float",
 			float_opts = {
 				border = "single",
@@ -29,9 +30,9 @@ return {
 			insert_mappings = true,
 			autochdir = false,
 			-- shading_factor = 20,
-			size = 20,
-			-- direction = "horizontal",
-			direction = "float",
+			size = 12,
+			-- direction = "float",
+			direction = "horizontal",
 			-- direction = "vertical",
 			open_mapping = [[<c-\>]],
 			float_opts = {
