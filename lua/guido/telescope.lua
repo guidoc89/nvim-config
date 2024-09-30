@@ -22,8 +22,14 @@ vim.keymap.set("n", "<leader>ll", builtin.git_commits, {})
 vim.keymap.set("n", "<leader>lb", builtin.git_branches, {})
 vim.keymap.set("n", "<leader>vr", builtin.lsp_references, {})
 vim.keymap.set("n", "gt", builtin.lsp_type_definitions, {})
+vim.keymap.set("n", "<leader>cc", builtin.colorscheme, {})
 
 telescope.setup({
+    pickers = {
+        colorscheme = {
+          enable_preview = true
+        }
+    },
 	defaults = {
 		mappings = {
 			n = {

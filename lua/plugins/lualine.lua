@@ -67,6 +67,8 @@ return {
         lualine_y = {
                     { "progress", separator = " ", padding = { left = 0, right = 1 } },
                     -- { "location", padding = { left = 0, right = 1 } },
+                    --
+                    {"g:colors_name"},
                 },
         lualine_z = {
             function()
