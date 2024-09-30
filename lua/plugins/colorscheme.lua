@@ -7,33 +7,18 @@ return {
 
 	{
 		"dgox16/oldworld.nvim",
-		lazy = false,
-		-- priority = 1000,
-		config = function()
-			vim.cmd.colorscheme("oldworld")
-		end,
 	},
 	{
 		"olimorris/onedarkpro.nvim",
-		-- priority = 1000, -- Ensure it loads first
-		-- config = function()
-		-- 	vim.cmd("colorscheme onedark")
-		-- end,
 	},
 	{
 		"sho-87/kanagawa-paper.nvim",
-		lazy = false,
-		-- priority = 1000,
-		opts = {},
-		-- config = function()
-		-- 	vim.cmd("colorscheme kanagawa-paper")
-		-- end,
 	},
 	{
 		"anAcc22/sakura.nvim",
-		-- config = function()
-		-- 	vim.cmd.colorscheme("sakura")
-		-- end,
+		config = function()
+			vim.cmd.colorscheme("sakura")
+		end,
 	},
 
 	{
