@@ -1,9 +1,14 @@
+-- return {}
 return {
 	{
 		"NvChad/nvim-colorizer.lua",
+		keys = {
+			{ "<leader>ca", "<cmd>ColorizerToggle<cr>", mode = { "n" } },
+		},
 		opts = {
 			user_default_options = {
 				tailwind = true,
+				mode = "virtualtext",
 			},
 		},
 	},
