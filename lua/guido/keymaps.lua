@@ -66,6 +66,9 @@ keymap("n", "-", "<C-x>", opts)
 -- Telescope
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", opts)
 
+-- Toggle spellcheck 
+keymap("n", "<leader>wo", "<cmd>set spell!<cr>", opts)
+
 -- Nvim tree
 -- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
 
