@@ -2,18 +2,16 @@
 
 return {
   "debugloop/telescope-undo.nvim",
-  dependencies = { -- note how they're inverted to above example
+  dependencies = {
     {
       "nvim-telescope/telescope.nvim",
       dependencies = { "nvim-lua/plenary.nvim" },
     },
   },
+    -- stylua: ignore start
   keys = {
-    { -- lazy style key map
-      "<leader>l",
-      "<cmd>Telescope undo<cr>",
-      desc = "undo history",
-    },
+    { "<leader>ll", "<cmd>Telescope undo<cr>", desc = "undo history" },
+    -- stylua: ignore end
   },
   opts = {
     -- don't use `defaults = { }` here, do this in the main telescope spec

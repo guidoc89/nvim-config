@@ -18,7 +18,7 @@ local fb_actions = require("telescope").extensions.file_browser.actions
 -- To seach git files
 vim.keymap.set("n", "<C-p>", builtin.git_files, {})
 vim.keymap.set("n", "<C-c>", builtin.git_bcommits, {})
-vim.keymap.set("n", "<leader>ll", builtin.git_commits, {})
+vim.keymap.set("n", "<leader>lc", builtin.git_commits, {})
 vim.keymap.set("n", "<leader>lb", builtin.git_branches, {})
 vim.keymap.set("n", "<leader>vr", builtin.lsp_references, {})
 vim.keymap.set("n", "gt", builtin.lsp_type_definitions, {})
