@@ -6,7 +6,8 @@ return {
         languages={
             python={
                 template={
-                    annotation_convention="numpydoc",
+                    -- annotation_convention="numpydoc",
+                    annotation_convention="reST",
                     -- annotation_convention="google_docstrings",
                 }
             }
