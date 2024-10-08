@@ -313,6 +313,7 @@ lsp.format_mapping("<leader>;f", {
 	servers = {
 		-- ["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python", "htmldjango", "html" },
 		["null-ls"] = {
+            "rust",
 			"javascript",
 			"typescript",
 			"lua",
@@ -335,7 +336,7 @@ null_ls.setup({
 		null_ls.builtins.formatting.black,
 		null_ls.builtins.formatting.djhtml,
 		null_ls.builtins.formatting.djlint,
-		-- null_ls.builtins.formatting.rust_analyzer, -- TODO: this doesnt work, try to check the real source (maybe rustanalyze?)
+		null_ls.builtins.formatting.rustfmt,
 		-- null_ls.builtins.formatting.black.with({ extra_args = {"--diff", "--check", "--color" }}),
 	},
 })
