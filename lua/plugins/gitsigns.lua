@@ -17,6 +17,7 @@ return {
     },
     keys = {
         {"<leader>ghc", ":Gitsigns blame_line<CR>", mode={"n"}},
+        {"<leader>glb", ":Gitsigns toggle_current_line_blame<CR>", mode={"n"}},
         {"]g", ":Gitsigns next_hunk<CR>", mode={"n"}},
         {"[g", ":Gitsigns prev_hunk<CR>", mode={"n"}},
         {"<leader>ghd", ":Gitsigns diffthis<CR>", mode={"n"}},
