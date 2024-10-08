@@ -94,6 +94,7 @@ return {
 			{ "hrsh7th/cmp-buffer" }, -- optional
 			{ "hrsh7th/cmp-path" }, -- optional
 			{ "saadparwaiz1/cmp_luasnip" }, -- optional
+            { "hrsh7th/cmp-cmdline" },
 			{ "hrsh7th/cmp-nvim-lua" }, -- optional
 			{ "onsails/lspkind.nvim" }, -- optional
 

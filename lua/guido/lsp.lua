@@ -103,6 +103,47 @@ lsp.setup_nvim_cmp({
 	},
 })
 
+cmp.setup.cmdline(":", {
+	completion = {
+		completeopt = "menu,menuone,noinsert,noselect",
+	},
+	mapping = cmp.mapping.preset.cmdline(),
+	sources = cmp.config.sources({
+		{ name = "path", max_item_count = 12  },
+	}, {
+		{ name = "cmdline", max_item_count = 12 },
+		{ name = "lazydev", max_item_count = 12 },
+	}),
+})
+
+local augroup = vim.api.nvim_create_augroup("CmdLineWindow", { clear = true })
+
+-- Autocmd for enabling cmp suggestion in cmdwin
+vim.api.nvim_create_autocmd("CmdwinEnter", {
+    group = augroup,
+    callback = function()
+        cmp.setup.buffer({
+	        mapping = cmp.mapping.preset.cmdline(),
+            sources = {
+                { name = 'buffer' , max_item_count = 12 },
+                { name = 'cmdline', max_item_count = 12  },
+            },
+        })
+        -- I mode when entering cmdwin
+        -- vim.cmd('startinsert')
+    end,
+})
+-- Cmdline search cmp
+cmp.setup.cmdline('/', {
+	completion = {
+		completeopt = "menu,menuone,noinsert,noselect",
+	},
+      mapping = cmp.mapping.preset.cmdline(),
+      sources = {
+        { name = 'buffer', max_item_count = 12 }
+      }
+    })
+
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
