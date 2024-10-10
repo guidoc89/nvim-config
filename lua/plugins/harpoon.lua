@@ -4,13 +4,16 @@ return {
 	config = function()
 		local mark = require("harpoon.mark")
 		local ui = require("harpoon.ui")
+        local keymap = vim.keymap.set
 
-		vim.keymap.set("n", "<leader>a", mark.add_file)
-		vim.keymap.set("n", "<C-h>", ui.toggle_quick_menu)
+		keymap("n", "<leader>a", mark.add_file, { desc = "Harpoon add file" })
+		keymap("n", "<C-h>", ui.toggle_quick_menu)
 
-		vim.keymap.set("n", "<leader>ha", function() ui.nav_file(1) end)
-		vim.keymap.set("n", "<leader>hf", function() ui.nav_file(2) end)
-		vim.keymap.set("n", "<leader>hk", function() ui.nav_file(3) end)
-		vim.keymap.set("n", "<leader>h;", function() ui.nav_file(4) end)
+        -- stylua: ignore start
+		keymap("n", "<leader>ha", function() ui.nav_file(1) end, { desc = "Harpoon file 1" })
+		keymap("n", "<leader>hf", function() ui.nav_file(2) end, { desc = "Harpoon file 2" })
+		keymap("n", "<leader>hk", function() ui.nav_file(3) end, { desc = "Harpoon file 3" })
+		keymap("n", "<leader>h;", function() ui.nav_file(4) end, { desc = "Harpoon file 4" })
+		-- stylua: ignore end
 	end,
 }

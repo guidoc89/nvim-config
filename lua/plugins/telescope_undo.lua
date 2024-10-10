@@ -10,7 +10,7 @@ return {
   },
     -- stylua: ignore start
   keys = {
-    { "<leader>ll", "<cmd>Telescope undo<cr>", desc = "undo history" },
+    { "<leader>ll", "<cmd>Telescope undo<cr>", desc = "Undo history" },
     -- stylua: ignore end
   },
   opts = {

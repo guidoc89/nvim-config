@@ -1,8 +1,8 @@
 return {
 	"stevearc/oil.nvim",
 	keys = {
-		{ "<leader>O", "<cmd>lua require('oil').open_float()<CR>", mode = { "n" } },
-		{ "<leader>o", "<cmd>lua require('oil').open()<CR>", mode = { "n" } },
+		{ "<leader>O", "<cmd>lua require('oil').open_float()<CR>", mode = { "n" }, desc="Oil toggle (float)" },
+		{ "<leader>o", "<cmd>lua require('oil').open()<CR>", mode = { "n" }, desc="Oil toggle" },
 		-- { "<leader>o", "<cmd>lua require('oil').open_float('.')<CR>", mode = { "n" } },
 	},
 	config = function()

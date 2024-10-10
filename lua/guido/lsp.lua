@@ -160,37 +160,23 @@ vim.api.nvim_create_autocmd("FileType", {
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
-	vim.keymap.set("n", "gd", function()
-		vim.lsp.buf.definition()
-	end, opts)
-
+    -- stylua: ignore start
+	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr, remap = false, desc="Go to defintion" })
 	vim.keymap.set("n", "<leader>I", function()
 		if vim.lsp.inlay_hint.is_enabled() then
 			vim.lsp.inlay_hint.enable(false, { 0 })
 		else
 			vim.lsp.inlay_hint.enable(true, { 0 })
 		end
-	end, opts)
+	end, { buffer = bufnr, remap = false, desc="Inlay hints toggle" })
 
-	vim.keymap.set("n", "K", function()
-		vim.lsp.buf.hover()
-	end, opts)
-	vim.keymap.set("n", "]d", function()
-		vim.diagnostic.goto_next()
-	end, opts)
-	vim.keymap.set("n", "[d", function()
-		vim.diagnostic.goto_prev()
-	end, opts)
-	vim.keymap.set("n", "<leader>vc", function()
-		vim.lsp.buf.code_action()
-	end, opts)
-	vim.keymap.set("n", "<leader>vn", function()
-		vim.lsp.buf.rename()
-	end, opts)
-	-- vim.keymap.set("i", "<C-h>", function()   -- used for harpoon
-	-- 	vim.lsp.buf.signature_help()
-	-- end, opts)
+	vim.keymap.set("n", "K", function() vim.lsp.buf.hover() end, { buffer = bufnr, remap = false, desc="Hover defintion (lsp)" })
+	vim.keymap.set("n", "]d", function() vim.diagnostic.goto_next() end, { buffer = bufnr, remap = false, desc="Diagnostics go next" })
+	vim.keymap.set("n", "[d", function() vim.diagnostic.goto_prev() end, { buffer = bufnr, remap = false, desc="Diagnostics go prev" })
+	vim.keymap.set("n", "<leader>vc", function() vim.lsp.buf.code_action() end, { buffer = bufnr, remap = false, desc="Code actions" })
+	vim.keymap.set("n", "<leader>vn", function() vim.lsp.buf.rename() end, { buffer = bufnr, remap = false, desc="Rename symbol (lsp)" })
 end)
+    -- stylua: ignore end
 
 lsp.configure("lua_ls", {
 	settings = {

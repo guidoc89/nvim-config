@@ -7,6 +7,6 @@ return {
         },
     },
     keys = {
-        {"<leader>u", ":SymbolsOutlineOpen<CR>", mode={"n"}},
+        {"<leader>u", ":SymbolsOutlineOpen<CR>", mode={"n"}, desc = "Outline symbols toggle"},
     },
 }

@@ -3,7 +3,7 @@ return {
 	{
 		"NvChad/nvim-colorizer.lua",
 		keys = {
-			{ "<leader>ca", "<cmd>ColorizerToggle<cr>", mode = { "n" } },
+			{ "<leader>ca", "<cmd>ColorizerToggle<cr>", mode = { "n" }, desc="Colorizer toggle" },
 		},
 		opts = {
 			user_default_options = {

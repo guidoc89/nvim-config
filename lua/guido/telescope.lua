@@ -14,15 +14,17 @@ local function telescope_buffer_dir()
 end
 
 local fb_actions = require("telescope").extensions.file_browser.actions
+local keymap = vim.keymap.set
+
 
 -- To search git files
-vim.keymap.set("n", "<leader>la", builtin.git_files, {})
-vim.keymap.set("n", "<leader>lf", builtin.git_bcommits, {})
-vim.keymap.set("n", "<leader>lc", builtin.git_commits, {})
-vim.keymap.set("n", "<leader>lb", builtin.git_branches, {})
-vim.keymap.set("n", "<leader>vr", builtin.lsp_references, {})
-vim.keymap.set("n", "gt", builtin.lsp_type_definitions, {})
-vim.keymap.set("n", "<leader>cc", builtin.colorscheme, {})
+keymap("n", "<leader>la", builtin.git_files, { desc = "Git files" })
+keymap("n", "<leader>lf", builtin.git_bcommits, { desc = "Git file commits" })
+keymap("n", "<leader>lc", builtin.git_commits, { desc = "Git branch commits" })
+keymap("n", "<leader>lb", builtin.git_branches, { desc = "Git branches" })
+keymap("n", "<leader>vr", builtin.lsp_references, { desc = "Go to references" })
+keymap("n", "gt", builtin.lsp_type_definitions, { desc = "Go to type definition" })
+keymap("n", "<leader>cc", builtin.colorscheme, { desc = "Change colorscheme" })
 
 telescope.setup({
     pickers = {
@@ -81,23 +83,14 @@ telescope.setup({
 	},
 })
 
-vim.keymap.set("n", "<leader>r", function()
-	builtin.live_grep()
-end)
-vim.keymap.set("n", "<leader>ba", function()
-	builtin.buffers()
-end)
-vim.keymap.set("n", "<leader>ss", function()
-	builtin.lsp_document_symbols()
-end)
-vim.keymap.set("n", "<leader>f", function()
-	builtin.find_files({no_ignore=false, hidden=true})
-end)
-vim.keymap.set("n", "<leader>dl", function()
-	builtin.diagnostics()
-end)
-
 local util = require("utils")
+-- stylua: ignore start
+keymap("n", "<leader>r", function() builtin.live_grep() end, { desc = "Live grep" })
+keymap("n", "<leader>ba", function() builtin.buffers() end, { desc = "Buffers" })
+keymap("n", "<leader>ss", function() builtin.lsp_document_symbols() end, { desc = "Lsp document symbols" })
+keymap("n", "<leader>f", function() builtin.find_files({ no_ignore = false, hidden = true }) end, { desc = "Find files" })
+keymap("n", "<leader>dl", function() builtin.diagnostics() end, { desc = "Workspace diagnostics" })
+-- stylua: ignore end
 
 telescope.setup({
 	defaults = {
@@ -191,7 +184,7 @@ telescope.setup({
 })
 --telescope.load_extension("file_browser")
 
-vim.keymap.set("n", "<leader>sf", function()
+keymap("n", "<leader>sf", function()
 	telescope.extensions.file_browser.file_browser({
 		path = "%:p:h",
 		cwd = telescope_buffer_dir(),
@@ -202,4 +195,4 @@ vim.keymap.set("n", "<leader>sf", function()
 		initial_mode = "normal",
 		layout_config = { height = 40 },
 	})
-end)
+end, { desc = "File browser" })

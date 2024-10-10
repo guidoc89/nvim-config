@@ -46,7 +46,7 @@ return {
 	end,
 	event = "LspAttach",
     keys = {
-        {"<leader>k", "<cmd>Lspsaga peek_definition<cr>", mode={"n"}},
+        {"<leader>k", "<cmd>Lspsaga peek_definition<cr>", mode={"n"}, desc = "Lsp saga peek defintion"},
         -- {"<leader>u", "<cmd>Lspsaga outline<cr>", mode={"n"}},
     },
 	dependencies = {
