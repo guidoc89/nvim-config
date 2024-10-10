@@ -144,6 +144,19 @@ cmp.setup.cmdline('/', {
       }
     })
 
+-- autocmd FileType sql,mysql,plsql lua 
+-- require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = {"sql", "mysql", "plsql"},
+    callback = function()
+        cmp.setup.buffer {
+            sources = {
+                { name = "vim-dadbod-completion", max_item_count = 12 }
+            }
+        }
+    end,
+})
+
 lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
