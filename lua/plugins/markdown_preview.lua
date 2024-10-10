@@ -7,7 +7,7 @@ return {
     init = function()
         vim.g.mkdp_filetypes = { "markdown" } end,
     ft = { "markdown" },
-    event="VeryLazy",
+    cmd = { "MarkdownPreview"},
     },
     {
         "ellisonleao/glow.nvim",
