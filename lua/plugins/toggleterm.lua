@@ -2,6 +2,7 @@ return {
 	"akinsho/toggleterm.nvim",
 	version = "*",
 	event = "VeryLazy",
+    cmd= {"ToggleTerm"},
 	config = function()
 		local Terminal = require("toggleterm.terminal").Terminal
 		local lazygit = Terminal:new({
