@@ -2,6 +2,7 @@ return {
 	{ "nvim-neotest/nvim-nio" },
 	{
 		"mfussenegger/nvim-dap",
+		cmd = { "DapNew" },
 		keys = {
         -- stylua: ignore start
           { "<leader>d", "", desc = "+debug", mode = {"n", "v"} },
@@ -26,6 +27,7 @@ return {
 		dependencies = {
 			{
 				"theHamsta/nvim-dap-virtual-text",
+				cmd = { "DapNew" },
 				config = function()
 					require("nvim-dap-virtual-text").setup({})
 				end,
@@ -36,11 +38,12 @@ return {
 
 	{
 		"mfussenegger/nvim-dap-python",
+		cmd = { "DapNew" },
 		ft = "python",
 		dependencies = {
-			"mfussenegger/nvim-dap",
-			"nvim-treesitter/nvim-treesitter",
-			"nvim-neotest/nvim-nio",
+			{ "mfussenegger/nvim-dap", cmd = { "DapNew" } },
+            { "nvim-treesitter/nvim-treesitter" },
+			{ "nvim-neotest/nvim-nio" },
 		},
 		config = function()
 			local path = "~/.local/share/nvim/mason/packages/debugpy/venv/bin/python"
@@ -55,6 +58,7 @@ return {
 
 	{
 		"rcarriga/nvim-dap-ui",
+		cmd = { "DapNew", "DapSession" },
 		dependencies = "mfussenegger/nvim-dap",
 		config = function()
 			local dap = require("dap")
