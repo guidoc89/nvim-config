@@ -8,11 +8,6 @@ return {
       options = {
         icons_enabled = true,
         theme = "auto",
-        -- theme = "catppuccin",
-        -- theme = 'tokyonight',
-        -- theme = 'kanagawa',
-        -- component_separators = { left = '', right = ''},
-        -- section_separators = { left = '', right = ''},
         disabled_filetypes = {
           statusline = {
                     "alpha",
@@ -66,8 +61,6 @@ return {
                 },
         lualine_y = {
                     { "progress", separator = " ", padding = { left = 0, right = 1 } },
-                    -- { "location", padding = { left = 0, right = 1 } },
-                    --
                     {"g:colors_name"},
                 },
         lualine_z = {

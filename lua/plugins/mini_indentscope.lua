@@ -17,7 +17,6 @@ return {
       pattern = {
         "help",
         "alpha",
-        -- "dashboard",
         "neo-tree",
         "Trouble",
         "lazy",

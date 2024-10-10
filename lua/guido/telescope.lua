@@ -83,7 +83,6 @@ telescope.setup({
 	},
 })
 
-local util = require("utils")
 -- stylua: ignore start
 keymap("n", "<leader>r", function() builtin.live_grep() end, { desc = "Live grep" })
 keymap("n", "<leader>ba", function() builtin.buffers() end, { desc = "Buffers" })

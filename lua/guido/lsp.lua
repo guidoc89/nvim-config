@@ -38,13 +38,10 @@ local lsp = require("lsp-zero").preset({
 lsp.ensure_installed({
 	"tsserver",
 	"eslint",
-	--'lua-language-server',
 	"rust_analyzer",
-	-- "pyright",
 	"html",
 	"jsonls",
 	"cssls",
-	-- 'r_language_server',
 	"tailwindcss",
 })
 
@@ -211,20 +208,10 @@ lsp.configure("marksman", {
 })
 
 lsp.configure("html", {
-	-- settings = {
-	-- 	completions = {
-	--
-	-- 		completeFunciontCalls = true,
-	-- 	},
-	-- },
 	filetypes = {
 		"html",
 		"htmldjango",
-		-- "python",
 	},
-	-- flags = {
-	-- 	debounce_text_changes = 200,
-	-- },
 })
 
 -- Tailwind
@@ -351,7 +338,6 @@ lsp.format_mapping("<leader>;f", {
 		timeout_ms = 10000,
 	},
 	servers = {
-		-- ["null-ls"] = { "javascript", "typescript", "lua", "typescriptreact", "javascriptreact", "python", "htmldjango", "html" },
 		["null-ls"] = {
             "rust",
 			"javascript",

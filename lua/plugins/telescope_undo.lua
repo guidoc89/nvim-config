@@ -1,5 +1,3 @@
--- return {}
-
 return {
   "debugloop/telescope-undo.nvim",
   dependencies = {
