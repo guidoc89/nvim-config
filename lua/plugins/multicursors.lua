@@ -16,9 +16,9 @@ return {
 		keymap({ "n", "v" }, "<leader><down>", function() mc.lineSkipCursor(1) end, { desc = "Skipt multicursor down" })
 
 		-- Add or skip adding a new cursor by matching word/selection
-		keymap({ "n", "v" }, "<leader>n", function() mc.matchAddCursor(1) end, { desc = "Multicursor match next word" })
+		keymap({ "n", "v" }, "<C-n>", function() mc.matchAddCursor(1) end, { desc = "Multicursor match next word" })
 		keymap({ "n", "v" }, "<leader>si", function() mc.matchSkipCursor(1) end, { desc = "Multicursor skip next word" })
-		keymap({ "n", "v" }, "<leader>N", function() mc.matchAddCursor(-1) end, { desc = "Multicursor match prev word" })
+		keymap({ "n", "v" }, "<C-p>", function() mc.matchAddCursor(-1) end, { desc = "Multicursor match prev word" })
 		keymap({ "n", "v" }, "<leader>sI", function() mc.matchSkipCursor(-1) end, { desc = "Multicursor skip prev word" })
 
 		-- Add all matches in the document
