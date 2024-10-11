@@ -27,11 +27,11 @@ keymap("n", "gt", builtin.lsp_type_definitions, { desc = "Go to type definition"
 keymap("n", "<leader>cc", builtin.colorscheme, { desc = "Change colorscheme" })
 
 telescope.setup({
-    pickers = {
-        colorscheme = {
-          enable_preview = true
-        }
-    },
+	pickers = {
+		colorscheme = {
+			enable_preview = true,
+		},
+	},
 	defaults = {
 		mappings = {
 			n = {

@@ -20,10 +20,12 @@ return {
         },
     },
     keys = {
+        -- stylua: ignore start
         { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
         { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
         { "<leader><leader>t", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
         { "<leader><leader>l", "<cmd>TodoTelescope<cr>", desc = "Todo" },
+        -- stylua: ignore end
         -- -- TODO: find out why this doesnt work with projets 
         -- { "<leader>tc", "<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>" , desc = "search TODOs in current file" },
         --<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>
