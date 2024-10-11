@@ -9,9 +9,6 @@ keymap("n", "<Space>", "<NOP>", opts)
 vim.g.maplocalleader = " "
 vim.g.mapleader = " "
 
--- No hl
-keymap("n", "<leader>h", "set hlsearch!<CR>", opts)
-
 -- To yank from and to system clipboard
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>p", '"+p', opts)
@@ -20,8 +17,6 @@ keymap("v", "<leader>p", '"+p', opts)
 keymap("i", "kj", "<ESC>", term_opts)
 keymap("c", "kj", "<ESC>", term_opts)
 
--- -- Netrw remap
--- keymap('n', '<leader>pq', '<cmd>Ex<CR>', term_opts)
 -- Easier delete line (awesome)
 keymap("n", "<BS>", "dd", opts)
 
@@ -69,8 +64,4 @@ keymap("n", "-", "<C-x>", opts)
 keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", { noremap = true, silent = true, desc = "Buffer diagnostics" })
 
 -- Toggle spellcheck
-
--- Nvim tree
--- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
-
 keymap("n", "<leader>wo", "<cmd>set spell!<cr>", { noremap = true, silent = true, desc = "Toggle spell check" })

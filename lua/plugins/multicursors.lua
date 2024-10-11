@@ -82,7 +82,6 @@ return {
 		-- stylua: ignore end
 
 		-- Customize how cursors look.
-		-- local hl = vim.api.nvim_set_hl
 		local hl = vim.api.nvim_set_hl
 		hl(0, "MultiCursorCursor", { link = "Cursor" })
 		hl(0, "MultiCursorVisual", { link = "Visual" })
