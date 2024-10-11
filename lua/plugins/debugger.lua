@@ -51,7 +51,7 @@ return {
 		end,
 		keys = {
             -- stylua: ignore start
-			{ "<leader>dM", function() require("dap-python").test_method() end, mode = { "n" }, },
+			{ "<leader>dM", function() require("dap-python").test_method() end, desc="Dap test method", mode = { "n" }, },
 			-- stylua: ignore end
 		},
 	},

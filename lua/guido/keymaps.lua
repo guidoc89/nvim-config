@@ -33,14 +33,14 @@ keymap("n", "-", "<C-x>", opts)
 keymap("n", "x", '"_x', opts)
 
 -- Split window
-keymap("n", "<C-w>i", ":split<Return><C-w>w", opts)
-keymap("n", "<C-w>u", ":vsplit<Return><C-w>w", opts)
+keymap("n", "<C-w>i", ":split<Return><C-w>w", { noremap = true, silent = true, desc = "Split horizontal"  })
+keymap("n", "<C-w>u", ":vsplit<Return><C-w>w", { noremap = true, silent = true, desc = "Split vertical"  })
 
 -- Resize window
-keymap("n", "<C-w><left>", "<C-w>6<", opts)
-keymap("n", "<C-w><right>", "<C-w>6>", opts)
-keymap("n", "<C-w><up>", "<C-w>6+", opts)
-keymap("n", "<C-w><down>", "<C-w>6-", opts)
+keymap("n", "<C-w><left>", "<C-w>6<", { noremap = true, silent = true, desc = "Resize window left"  })
+keymap("n", "<C-w><right>", "<C-w>6>", { noremap = true, silent = true, desc = "Resize window right"  })
+keymap("n", "<C-w><up>", "<C-w>6+", { noremap = true, silent = true, desc = "Resize window up"  })
+keymap("n", "<C-w><down>", "<C-w>6-", { noremap = true, silent = true, desc = "Resize window down" })
 
 -- New tab
 keymap("n", "te", ":tabedit<Return>", term_opts)
@@ -66,11 +66,11 @@ keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
 
 -- Telescope
-keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", opts)
+keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", { noremap = true, silent = true, desc = "Buffer diagnostics" })
 
 -- Toggle spellcheck
-keymap("n", "<leader>wo", "<cmd>set spell!<cr>", opts)
 
 -- Nvim tree
 -- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
 
+keymap("n", "<leader>wo", "<cmd>set spell!<cr>", { noremap = true, silent = true, desc = "Toggle spell check" })

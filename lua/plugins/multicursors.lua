@@ -12,8 +12,8 @@ return {
         -- stylua: ignore start
 		keymap({ "n", "v" }, "<up>", function() mc.lineAddCursor(-1) end, { desc = "Add multicursor up" })
 		keymap({ "n", "v" }, "<down>", function() mc.lineAddCursor(1) end, { desc = "Add multicursor down" })
-		keymap({ "n", "v" }, "<leader><up>", function() mc.lineSkipCursor(-1) end, { desc = "Skipt multicursor up" })
-		keymap({ "n", "v" }, "<leader><down>", function() mc.lineSkipCursor(1) end, { desc = "Skipt multicursor down" })
+		keymap({ "n", "v" }, "<leader><up>", function() mc.lineSkipCursor(-1) end, { desc = "Skip multicursor up" })
+		keymap({ "n", "v" }, "<leader><down>", function() mc.lineSkipCursor(1) end, { desc = "Skip multicursor down" })
 
 		-- Add or skip adding a new cursor by matching word/selection
 		keymap({ "n", "v" }, "<C-n>", function() mc.matchAddCursor(1) end, { desc = "Multicursor match next word" })
