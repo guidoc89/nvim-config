@@ -22,6 +22,8 @@ keymap("c", "kj", "<ESC>", term_opts)
 
 -- -- Netrw remap
 -- keymap('n', '<leader>pq', '<cmd>Ex<CR>', term_opts)
+-- Easier delete line (awesome)
+keymap("n", "<BS>", "dd", opts)
 
 -- Increment/decrement
 keymap("n", "+", "<C-a>", opts)
@@ -72,5 +74,3 @@ keymap("n", "<leader>wo", "<cmd>set spell!<cr>", opts)
 -- Nvim tree
 -- keymap('n', '<leader>e', '<cmd>NvimTreeToggle<cr>', opts)
 
--- Delette with backspace in insert mode
--- keymap("n", "<BS>", "diw", opts)
