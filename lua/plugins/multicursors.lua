@@ -33,8 +33,8 @@ return {
 		-- end)
 
 		-- Rotate the main cursor.
-		keymap({ "n", "v" }, "<left>", mc.nextCursor, { desc = "Multicursor rotate cursor left" })
-		keymap({ "n", "v" }, "<right>", mc.prevCursor, { desc = "Multicursor rotate cursor right" })
+		keymap({ "n", "v" }, "<C-s>", mc.prevCursor, { desc = "Multicursor rotate cursor left" })
+		keymap({ "n", "v" }, "<C-f>", mc.nextCursor, { desc = "Multicursor rotate cursor right" })
 
 		-- Delete the main cursor.
 		keymap({ "n", "v" }, "<leader>x", mc.deleteCursor, { desc = "Multicursor delete main cursor" })
