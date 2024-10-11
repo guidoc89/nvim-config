@@ -88,7 +88,7 @@ keymap("n", "<leader>r", function() builtin.live_grep() end, { desc = "Live grep
 keymap("n", "<leader>ba", function() builtin.buffers() end, { desc = "Buffers" })
 keymap("n", "<leader>ss", function() builtin.lsp_document_symbols() end, { desc = "Lsp document symbols" })
 keymap("n", "<leader>f", function() builtin.find_files({ no_ignore = false, hidden = true }) end, { desc = "Find files" })
-keymap("n", "<leader>dl", function() builtin.diagnostics() end, { desc = "Workspace diagnostics" })
+keymap("n", "<leader>ls", function() builtin.diagnostics() end, { desc = "Workspace diagnostics" })
 -- stylua: ignore end
 
 telescope.setup({
