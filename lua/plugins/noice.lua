@@ -1,54 +1,38 @@
-return {}
-
-
--- return {
--- 	"folke/noice.nvim",
--- 	event = "VeryLazy",
--- 	opts = {
--- 		views = {
--- 			-- cmdline_popup = {
--- 			-- 	position = {
--- 			-- 		row = 5,
--- 			-- 		col = "50%",
--- 			-- 	},
--- 			-- },
--- 		},
--- 		lsp = {
--- 			progress = {
--- 				enabled = true,
--- 			},
--- 			override = {
--- 				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
--- 				["vim.lsp.util.stylize_markdown"] = true,
--- 				["cmp.entry.get_documentation"] = true,
--- 			},
--- 			hover = {
--- 				enabled = false,
--- 			},
--- 			signature = {
--- 				enabled = false,
--- 			},
--- 			message = {
--- 				enabled = false,
--- 			},
--- 		},
--- 		messages = {
--- 			enabled = false,
--- 		},
--- 		-- popupmenu = {
--- 		--           backend= "cmp",
--- 		-- 	enabled = true,
--- 		-- },
--- 		notify = {
--- 			enabled = true,
--- 		},
--- 	},
--- 	dependencies = {
--- 		-- if you lazy-load any plugin below, make sure to add proper `module="..."` entries
--- 		-- "MunifTanjim/nui.nvim",
--- 		-- OPTIONAL:
--- 		--   `nvim-notify` is only needed, if you want to use the notification view.
--- 		--   If not available, we use `mini` as the fallback
--- 		-- "rcarriga/nvim-notify",
--- 	},
--- }
+return {
+	"folke/noice.nvim",
+	event = "VeryLazy",
+	opts = {
+		lsp = {
+			progress = {
+				enabled = true,
+			},
+			override = {
+				["vim.lsp.util.convert_input_to_markdown_lines"] = true,
+				["vim.lsp.util.stylize_markdown"] = true,
+				["cmp.entry.get_documentation"] = true,
+			},
+			hover = {
+				enabled = false,
+			},
+			signature = {
+				enabled = false,
+			},
+			message = {
+				enabled = false,
+			},
+		},
+		messages = {
+			enabled = false,
+		},
+		popupmenu = {
+			backend = "cmp",
+			enabled = true,
+		},
+		notify = {
+			enabled = true,
+		},
+	},
+	dependencies = {
+		"MunifTanjim/nui.nvim",
+	},
+}
