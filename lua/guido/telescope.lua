@@ -1,6 +1,7 @@
 require("telescope").load_extension("media_files")
 require("telescope").load_extension("git_worktree")
 require("telescope").load_extension("harpoon")
+require("telescope").load_extension("fzf")
 
 local status, telescope = pcall(require, "telescope")
 if not status then
@@ -15,7 +16,6 @@ end
 
 local fb_actions = require("telescope").extensions.file_browser.actions
 local keymap = vim.keymap.set
-
 
 -- To search git files
 keymap("n", "<leader>la", builtin.git_files, { desc = "Git files" })
@@ -85,6 +85,18 @@ telescope.setup({
 
 -- stylua: ignore start
 keymap("n", "<leader>r", function() builtin.live_grep() end, { desc = "Live grep" })
+keymap("n", "<leader>cn", function()
+    local opts = require("telescope.themes").get_ivy({
+        cwd = vim.fn.stdpath("config")
+    })
+    builtin.find_files(opts)
+end, { desc = "Config files" })
+keymap("n", "<leader>cp", function()
+    local opts = require("telescope.themes").get_ivy({
+        cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
+    })
+    builtin.find_files(opts)
+end, { desc = "Installed packages/plugins" })
 keymap("n", "<leader>ba", function() builtin.buffers() end, { desc = "Buffers" })
 keymap("n", "<leader>ss", function() builtin.lsp_document_symbols() end, { desc = "Lsp document symbols" })
 keymap("n", "<leader>f", function() builtin.find_files({ no_ignore = false, hidden = true }) end, { desc = "Find files" })
@@ -137,6 +149,7 @@ telescope.setup({
 		},
 	},
 	extensions = {
+		fzf = {},
 		file_browser = {
 			theme = "dropdown",
 			-- disables netrw and use telescope-file-browser in its place

@@ -8,7 +8,11 @@ return {
 	-- {     "JoosepAlviste/nvim-ts-context-commentstring", config= },
 
 	-- telescope
-	{ "nvim-telescope/telescope.nvim", dependencies = "nvim-lua/plenary.nvim" },
+	{ "nvim-telescope/telescope.nvim", dependencies = {
+            "nvim-lua/plenary.nvim",
+            { "nvim-telescope/telescope-fzf-native.nvim", build = "make"  },
+        }
+    },
 	{ "nvim-telescope/telescope-file-browser.nvim" },
 	"nvim-telescope/telescope-media-files.nvim",
     -- colorschemes,
