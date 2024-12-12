@@ -9,6 +9,11 @@ keymap("n", "<Space>", "<NOP>", opts)
 vim.g.maplocalleader = " "
 vim.g.mapleader = " "
 
+-- Source curr file
+keymap("n", "<space><space>x", "<cmd>source %<CR>", { noremap = true, silent = true, desc = "Source file"  })
+keymap("n", "<space>x", ":.lua<CR>", { noremap = true, silent = true, desc = "Source line"  })
+keymap("v", "<space>x", ":.lua<CR>", { noremap = true, silent = true, desc = "Source selection"  })
+
 -- To yank from and to system clipboard
 keymap("v", "<leader>y", '"+y', opts)
 keymap("v", "<leader>p", '"+p', opts)
