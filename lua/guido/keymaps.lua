@@ -56,6 +56,9 @@ keymap("n", "H", ":bprevious<CR>", term_opts)
 keymap("x", "J", ":move '>+1<CR>gv-gv", opts)
 keymap("x", "K", ":move '<-2<CR>gv-gv", opts)
 
+-- Erase current word
+keymap("n", "<Tab>", "ciw", opts)
+
 -- Increment/decrement numbers
 keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
