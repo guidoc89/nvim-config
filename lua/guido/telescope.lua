@@ -33,7 +33,28 @@ telescope.setup({
 			enable_preview = true,
 		},
 	},
+	extensions = {
+		fzf = {},
+    },
 	defaults = {
+		vimgrep_arguments = {
+			"rg",
+			"-L",
+			"--color=never",
+			"--no-heading",
+			"--with-filename",
+			"--line-number",
+			"--column",
+			"--smart-case",
+		},
+		file_ignore_patterns = {
+			"windows_venv/*",
+			"venv/*",
+			"node_modules/.*",
+			".git/.*",
+			"%.ipynb",
+			"%.xlsx",
+		},
 		mappings = {
 			n = {
 				["q"] = actions.close,
@@ -103,109 +124,3 @@ keymap("n", "<leader>ss", function() builtin.lsp_document_symbols() end, { desc 
 keymap("n", "<leader>f", function() builtin.find_files({ no_ignore = false, hidden = true }) end, { desc = "Find files" })
 keymap("n", "<leader>lw", function() builtin.diagnostics() end, { desc = "Workspace diagnostics" })
 -- stylua: ignore end
-
-telescope.setup({
-	defaults = {
-		vimgrep_arguments = {
-			"rg",
-			"-L",
-			"--color=never",
-			"--no-heading",
-			"--with-filename",
-			"--line-number",
-			"--column",
-			"--smart-case",
-		},
-		file_ignore_patterns = {
-			"windows_venv/*",
-			"venv/*",
-			"node_modules/.*",
-			".git/.*",
-			"%.ipynb",
-			"%.xlsx",
-		},
-		mappings = {
-			n = {
-				["q"] = actions.close,
-				["<Down>"] = actions.move_selection_next,
-				["<Up>"] = actions.move_selection_previous,
-
-				["<leader>i"] = actions.select_horizontal,
-				["<leader>u"] = actions.select_vertical,
-				["<leader>0"] = actions.select_tab,
-
-				["<C-u>"] = actions.preview_scrolling_up,
-				["<C-d>"] = actions.preview_scrolling_down,
-
-				["<PageUp>"] = actions.results_scrolling_up,
-				["<PageDown>"] = actions.results_scrolling_down,
-
-				["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-				["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-				["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-				["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-				["<C-l>"] = actions.complete_tag,
-				["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-			},
-		},
-	},
-	extensions = {
-		fzf = {},
-		file_browser = {
-			theme = "dropdown",
-			-- disables netrw and use telescope-file-browser in its place
-			hijack_netrw = true,
-			mappings = {
-				-- your custom insert mode mappings
-				["i"] = {
-					["<C-w>"] = function()
-						vim.cmd("normal vbd")
-					end,
-					["<leader>q"] = actions.close,
-
-					["<Down>"] = actions.move_selection_next,
-					["<Up>"] = actions.move_selection_previous,
-
-					["<leader>i"] = actions.select_horizontal,
-					["<leader>u"] = actions.select_vertical,
-					["<leader>0"] = actions.select_tab,
-
-					["<C-u>"] = actions.preview_scrolling_up,
-					["<C-d>"] = actions.preview_scrolling_down,
-
-					["<PageUp>"] = actions.results_scrolling_up,
-					["<PageDown>"] = actions.results_scrolling_down,
-
-					["<Tab>"] = actions.toggle_selection + actions.move_selection_worse,
-					["<S-Tab>"] = actions.toggle_selection + actions.move_selection_better,
-					["<C-q>"] = actions.send_to_qflist + actions.open_qflist,
-					["<M-q>"] = actions.send_selected_to_qflist + actions.open_qflist,
-					["<C-l>"] = actions.complete_tag,
-					["<C-_>"] = actions.which_key, -- keys from pressing <C-/>
-				},
-				["n"] = {
-					-- your custom normal mode mappings
-					["N"] = fb_actions.create,
-					-- ["h"] = fb_actions.goto_parent_dir,
-					["/"] = function()
-						vim.cmd("startinsert")
-					end,
-				},
-			},
-		},
-	},
-})
---telescope.load_extension("file_browser")
-
-keymap("n", "<leader>sf", function()
-	telescope.extensions.file_browser.file_browser({
-		path = "%:p:h",
-		cwd = telescope_buffer_dir(),
-		respect_gitignore = false,
-		hidden = true,
-		grouped = true,
-		previewer = true,
-		initial_mode = "normal",
-		layout_config = { height = 40 },
-	})
-end, { desc = "File browser" })
