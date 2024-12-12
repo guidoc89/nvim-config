@@ -25,6 +25,7 @@ keymap("n", "<leader>lb", builtin.git_branches, { desc = "Git branches" })
 keymap("n", "<leader>vr", builtin.lsp_references, { desc = "Go to references" })
 keymap("n", "gt", builtin.lsp_type_definitions, { desc = "Go to type definition" })
 keymap("n", "<leader>cc", builtin.colorscheme, { desc = "Change colorscheme" })
+keymap("n", "<leader>ht", builtin.help_tags, { desc = "Help tags" })
 
 telescope.setup({
 	pickers = {
