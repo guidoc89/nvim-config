@@ -32,6 +32,11 @@ telescope.setup({
 		colorscheme = {
 			enable_preview = true,
 		},
+       find_files = {
+           no_ignore = false,
+           hidden = true,
+           layout_config = { width = 0.80, preview_width = 0.6 }
+       },
 	},
 	extensions = {
 		fzf = {},
@@ -121,6 +126,9 @@ keymap("n", "<leader>cp", function()
 end, { desc = "Installed packages/plugins" })
 keymap("n", "<leader>ba", function() builtin.buffers() end, { desc = "Buffers" })
 keymap("n", "<leader>ss", function() builtin.lsp_document_symbols() end, { desc = "Lsp document symbols" })
-keymap("n", "<leader>f", function() builtin.find_files({ no_ignore = false, hidden = true }) end, { desc = "Find files" })
-keymap("n", "<leader>lw", function() builtin.diagnostics() end, { desc = "Workspace diagnostics" })
+keymap("n", "<leader>f", function() builtin.find_files() end, { desc = "Find files" })
+keymap("n", "<leader>lw", function()
+    local opts = require("telescope.themes").get_ivy()
+    builtin.diagnostics(opts)
+end, { desc = "Workspace diagnostics" })
 -- stylua: ignore end
