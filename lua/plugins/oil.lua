@@ -1,10 +1,11 @@
 return {
-	"stevearc/oil.nvim",
+  'stevearc/oil.nvim',
+  opts = {},
 	keys = {
 		{ "<leader>O", "<cmd>lua require('oil').open_float()<CR>", mode = { "n" }, desc="Oil toggle (float)" },
 		{ "<leader>o", "<cmd>lua require('oil').open()<CR>", mode = { "n" }, desc="Oil toggle" },
-		-- { "<leader>o", "<cmd>lua require('oil').open_float('.')<CR>", mode = { "n" } },
 	},
+  dependencies = { { "echasnovski/mini.icons", opts = {} } },
 	config = function()
 		require("oil").setup({
 			keymaps = {
