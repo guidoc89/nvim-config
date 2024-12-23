@@ -13,7 +13,6 @@ return {
             { "nvim-telescope/telescope-fzf-native.nvim", build = "make"  },
         }
     },
-	{ "nvim-telescope/telescope-file-browser.nvim" },
 	"nvim-telescope/telescope-media-files.nvim",
     -- colorschemes,
  	"rktjmp/lush.nvim",

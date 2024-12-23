@@ -16,7 +16,6 @@ local function telescope_buffer_dir()
 	return vim.fn.expand("%:p:h")
 end
 
-local fb_actions = require("telescope").extensions.file_browser.actions
 local keymap = vim.keymap.set
 
 -- To search git files
