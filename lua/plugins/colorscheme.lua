@@ -1,6 +1,5 @@
---  -- General nvim config
 vim.opt.background = "dark"
-vim.o.termguicolors = true -- is this even necessary?
+vim.o.termguicolors = true
 vim.wo.cursorline = true
 
 return {

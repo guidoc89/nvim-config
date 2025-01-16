@@ -1,5 +1,3 @@
-require("telescope").load_extension("media_files")
-require("telescope").load_extension("git_worktree")
 require("telescope").load_extension("harpoon")
 require("telescope").load_extension("fzf")
 
@@ -11,10 +9,6 @@ if not status then
 end
 local actions = require("telescope.actions")
 local builtin = require("telescope.builtin")
-
-local function telescope_buffer_dir()
-	return vim.fn.expand("%:p:h")
-end
 
 local keymap = vim.keymap.set
 

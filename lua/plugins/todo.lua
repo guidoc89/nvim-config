@@ -1,25 +1,23 @@
 return {
-    "folke/todo-comments.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    cmd = { "TodoTrouble", "TodoTelescope" },
-    event = { "BufReadPost", "BufNewFile" },
-    opts = {
-        search = {
-            command = "rg",
-            args = {
-                "--glob=!venv/",
-                "--glob=!windows_venv/",
-                "--glob=!*.ipynb",
-                "--glob=!node_modules*",
-                "--color=never",
-                "--no-heading",
-                "--with-filename",
-                "--line-number",
-                "--column",
-                },
-        },
-    },
-    keys = {
+	"folke/todo-comments.nvim",
+	dependencies = { "nvim-lua/plenary.nvim" },
+	opts = {
+		search = {
+			command = "rg",
+			args = {
+				"--glob=!venv/",
+				"--glob=!windows_venv/",
+				"--glob=!*.ipynb",
+				"--glob=!node_modules*",
+				"--color=never",
+				"--no-heading",
+				"--with-filename",
+				"--line-number",
+				"--column",
+			},
+		},
+	},
+	keys = {
         -- stylua: ignore start
         { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
         { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },

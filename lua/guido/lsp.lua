@@ -123,11 +123,9 @@ vim.api.nvim_create_autocmd("CmdwinEnter", {
 	        mapping = cmp.mapping.preset.cmdline(),
             sources = {
                 { name = 'buffer' , max_item_count = 12 },
-                { name = 'cmdline', max_item_count = 12  },
+                { name = 'cmdline', max_item_count = 12 },
             },
         })
-        -- I mode when entering cmdwin
-        -- vim.cmd('startinsert')
     end,
 })
 -- Cmdline search cmp
@@ -141,8 +139,6 @@ cmp.setup.cmdline('/', {
       }
     })
 
--- autocmd FileType sql,mysql,plsql lua 
--- require('cmp').setup.buffer({ sources = {{ name = 'vim-dadbod-completion' }} })
 vim.api.nvim_create_autocmd("FileType", {
     pattern = {"sql", "mysql", "plsql"},
     callback = function()

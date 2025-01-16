@@ -5,7 +5,6 @@ return {
 		"tpope/vim-fugitive",
 		event = "VeryLazy",
 	},
-	-- {     "JoosepAlviste/nvim-ts-context-commentstring", config= },
 
 	-- telescope
 	{ "nvim-telescope/telescope.nvim", dependencies = {
@@ -24,13 +23,10 @@ return {
     build = ":TSUpdate",
     dependencies = {
       "nvim-treesitter/nvim-treesitter-textobjects",
-      -- "matthewmazzanti/nvim-ts-autotag",
     },
     config = function()
-      -- import nvim-treesitter plugin
       local treesitter = require("nvim-treesitter.configs")
 
-      -- configure treesitter
       treesitter.setup({ -- enable syntax highlighting
         highlight = {
           enable = true,
@@ -107,43 +103,4 @@ return {
 		},
 	},
 
-	-- latex
-	-- 'lervag/vimtex',
-	-- 'barreiroleo/ltex_extra.nvim',
-	-- 'latex-lsp/tree-sitter-latex',
-
-	-- -- quarto support
-	-- { 'quarto-dev/quarto-nvim',
-	--    dependencies = {
-	--      'jmbuhr/otter.nvim',
-	--      'neovim/nvim-lspconfig'
-	--    },
-	--  },
-
-	--  {
-	--     'quarto-dev/quarto-nvim',
-	--     version = '0.7.3',
-	--     dependencies = {
-	--       { 'hrsh7th/nvim-cmp' },
-	--       {
-	--         'jmbuhr/otter.nvim',
-	--         version = '0.8.1',
-	--         config = function()
-	--           require 'otter.config'.setup {
-	--             lsp = {
-	--               hover = {
-	--                 border = require 'misc.style'.border
-	--               }
-	--             }
-	--           }
-	--         end,
-	--         }
-	--     }
-	-- },
-
-	---- to cycle through tmux and vim panes with the same keybings
-	-- ({
-	--      "aserowy/tmux.nvim",
-	--      config = function() return require("tmux").setup() end
-	--  })
 }

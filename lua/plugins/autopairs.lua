@@ -11,4 +11,4 @@ return {
 		},
 	},
 	event = "InsertEnter",
-} -- to easily surround selections with delimiters
+}
