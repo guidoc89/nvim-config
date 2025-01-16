@@ -15,6 +15,7 @@ local keymap = vim.keymap.set
 -- stylua: ignore start
 keymap("n", "<leader>lb", builtin.git_branches, { desc = "Git branches" })
 keymap("n", "<leader>cc", builtin.colorscheme, { desc = "Change colorscheme" })
+keymap("n", "<leader>ss", builtin.lsp_document_symbols, { desc = "Lsp document symbols" })
 -- stylua: ignore end
 
 telescope.setup({
