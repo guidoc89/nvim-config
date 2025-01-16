@@ -23,23 +23,40 @@ vim.opt.smartindent = true
 vim.opt.wrap = false
 vim.g.mapleader = " "
 
-vim.o.listchars = "trail:-,nbsp:+,tab:▏ ,eol:↴"
-vim.o.list = true
-vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
-vim.cmd([[match TrailingWhitespace /\s\+$/]])
--- Use these two autcmds together, otherwise is going to flag the whitespace as error while typing normally, override "trail" while in insert mode
-vim.api.nvim_create_autocmd("InsertEnter", {
-	callback = function()
-		vim.opt.listchars.trail = nil
-		vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
-	end
-})
-vim.api.nvim_create_autocmd("InsertLeave", {
-	callback = function()
-		vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
-	end
+
+vim.api.nvim_create_autocmd("User", {
+    pattern = "SnacksDashboardClosed",
+    callback = function()
+        vim.o.listchars = "trail:-,nbsp:+,tab:▏ ,eol:↴"
+        vim.o.list = true
+        vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+        vim.cmd([[match TrailingWhitespace /\s\+$/]])
+
+        vim.api.nvim_create_autocmd("InsertEnter", {
+            callback = function()
+                vim.opt.listchars.trail = nil
+                vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
+            end
+        })
+
+        vim.api.nvim_create_autocmd("InsertLeave", {
+            callback = function()
+                vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Error" })
+            end
+        })
+    end,
 })
 
+vim.api.nvim_create_autocmd("User", {
+    pattern = "SnacksDashboardOpened",
+    callback = function()
+        vim.opt.listchars.trail = nil
+        vim.o.listchars = nil
+        vim.o.list = false
+        vim.api.nvim_set_hl(0, "TrailingWhitespace", { link = "Whitespace" })
+        vim.cmd([[match none]])
+    end,
+})
 -- Set python host
 vim.g.python3_host_prog =vim.fn.expand(  "~/.config/nvim/venv/bin/python3")
 

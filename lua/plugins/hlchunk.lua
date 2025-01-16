@@ -1,6 +1,6 @@
 return {
 	"shellRaining/hlchunk.nvim",
-	event = { "UIEnter" },
+    event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("hlchunk").setup({
 			blank = {
@@ -11,6 +11,12 @@ return {
             },
             indent = {
                 enable = true,
+                exclude_filetypes = {
+                    snacks_dashboard = true,
+                    dashboard = true,
+                    alpha = true,
+                },
+
             }
 		})
 	end,
