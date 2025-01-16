@@ -18,15 +18,10 @@ end
 
 local keymap = vim.keymap.set
 
--- To search git files
-keymap("n", "<leader>la", builtin.git_files, { desc = "Git files" })
-keymap("n", "<leader>lf", builtin.git_bcommits, { desc = "Git file commits" })
-keymap("n", "<leader>lc", builtin.git_commits, { desc = "Git branch commits" })
+-- stylua: ignore start
 keymap("n", "<leader>lb", builtin.git_branches, { desc = "Git branches" })
-keymap("n", "<leader>vr", builtin.lsp_references, { desc = "Go to references" })
-keymap("n", "gt", builtin.lsp_type_definitions, { desc = "Go to type definition" })
 keymap("n", "<leader>cc", builtin.colorscheme, { desc = "Change colorscheme" })
-keymap("n", "<leader>ht", builtin.help_tags, { desc = "Help tags" })
+-- stylua: ignore end
 
 telescope.setup({
 	pickers = {
@@ -111,25 +106,3 @@ telescope.setup({
 	},
 })
 
--- stylua: ignore start
-keymap("n", "<leader>r", function() builtin.live_grep() end, { desc = "Live grep" })
-keymap("n", "<leader>cn", function()
-    local opts = require("telescope.themes").get_ivy({
-        cwd = vim.fn.stdpath("config")
-    })
-    builtin.find_files(opts)
-end, { desc = "Config files" })
-keymap("n", "<leader>cp", function()
-    local opts = require("telescope.themes").get_ivy({
-        cwd = vim.fs.joinpath(vim.fn.stdpath("data"), "lazy")
-    })
-    builtin.find_files(opts)
-end, { desc = "Installed packages/plugins" })
-keymap("n", "<leader>ba", function() builtin.buffers() end, { desc = "Buffers" })
-keymap("n", "<leader>ss", function() builtin.lsp_document_symbols() end, { desc = "Lsp document symbols" })
-keymap("n", "<leader>f", function() builtin.find_files() end, { desc = "Find files" })
-keymap("n", "<leader>lw", function()
-    local opts = require("telescope.themes").get_ivy()
-    builtin.diagnostics(opts)
-end, { desc = "Workspace diagnostics" })
--- stylua: ignore end

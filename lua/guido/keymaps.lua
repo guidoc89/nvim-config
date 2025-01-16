@@ -68,8 +68,5 @@ keymap("n", "<Tab>", "ciw", opts)
 keymap("n", "+", "<C-a>", opts)
 keymap("n", "-", "<C-x>", opts)
 
--- Telescope
-keymap("n", "<leader>ld", "<cmd>Telescope diagnostics bufnr=0 theme=get_ivy<cr>", { noremap = true, silent = true, desc = "Buffer diagnostics" })
-
 -- Toggle spellcheck
 keymap("n", "<leader>wo", "<cmd>set spell!<cr>", { noremap = true, silent = true, desc = "Toggle spell check" })

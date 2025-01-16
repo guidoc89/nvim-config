@@ -158,7 +158,6 @@ lsp.on_attach(function(client, bufnr)
 	local opts = { buffer = bufnr, remap = false }
 
     -- stylua: ignore start
-	vim.keymap.set("n", "gd", function() vim.lsp.buf.definition() end, { buffer = bufnr, remap = false, desc="Go to defintion" })
 	vim.keymap.set("n", "<leader>I", function()
 		if vim.lsp.inlay_hint.is_enabled() then
 			vim.lsp.inlay_hint.enable(false, { 0 })

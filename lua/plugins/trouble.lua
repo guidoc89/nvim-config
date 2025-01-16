@@ -1,13 +1,22 @@
 return {
- "folke/trouble.nvim",
-    event="VeryLazy",
- -- dependencies = { "nvim-tree/nvim-web-devicons" },
- -- opts = {
- --  -- your configuration comes here
- --  -- or leave it empty to use the default settings
- --  -- refer to the configuration section below
- -- },
-    -- keys = {
-    --         {"<leader>vr","<cmd>TroubleToggle lsp_references<cr>", mode = {"n","v"}},
-    -- }
+	"folke/trouble.nvim",
+	cmd = "Trouble",
+	opts = {},
+	specs = {
+		"folke/snacks.nvim",
+		opts = function(_, opts)
+			return vim.tbl_deep_extend("force", opts or {}, {
+				picker = {
+					actions = require("trouble.sources.snacks").actions,
+					win = {
+						input = {
+							keys = {
+								["<c-q>"] = { "trouble_open", mode = { "n", "i" }, },
+							},
+						},
+					},
+				},
+			})
+		end,
+	},
 }

@@ -23,11 +23,17 @@ return {
         -- stylua: ignore start
         { "]t", function() require("todo-comments").jump_next() end, desc = "Next todo comment" },
         { "[t", function() require("todo-comments").jump_prev() end, desc = "Previous todo comment" },
-        { "<leader><leader>t", "<cmd>TodoTrouble<cr>", desc = "Todo (Trouble)" },
-        { "<leader><leader>l", "<cmd>TodoTelescope<cr>", desc = "Todo" },
-        -- stylua: ignore end
-        -- -- TODO: find out why this doesnt work with projets 
-        -- { "<leader>tc", "<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>" , desc = "search TODOs in current file" },
-        --<Cmd>exe ':TodoQuickFix cwd=' .. fnameescape(expand('%:p'))<CR>
-    },
+        { "<leader><leader>t", function() Snacks.picker.todo_comments({
+            layout = { preset = "ivy", preview = "main" }
+        }) end, desc = "Todo" },
+
+		{ "<leader><leader>l", function() Snacks.picker.todo_comments({
+					layout = { preset = "ivy", preview = "main" },
+					keywords = { "TODO", "FIX", "FIXME", "BUG", "NOTE" },
+				})
+			end,
+			desc = "TODO/FIX/FIXME/BUG/NOTE",
+		},
+		-- stylua: ignore end
+	},
 }
