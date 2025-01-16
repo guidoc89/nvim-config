@@ -84,6 +84,63 @@ function M.telescope(builtin, opts)
   end
 end
 
+M.snacks_telescope_opts = {
+	layout = {
+		reverse = true,
+		layout = {
+			box = "horizontal",
+			backdrop = false,
+			width = 0.95,
+			height = 0.9,
+			border = "none",
+			{
+				box = "vertical",
+				{ win = "list", title = " Results ", title_pos = "center", border = "rounded" },
+				{ win = "input", height = 1, border = "rounded", title = "{source} {live}", title_pos = "center" },
+			},
+			{
+				win = "preview",
+				width = 0.55,
+				border = "rounded",
+				title = " Preview ",
+				title_pos = "center",
+			},
+		},
+	},
+}
+
+M.snacks_ivy_opts = {
+	layout = {
+		layout = {
+			box = "vertical",
+			backdrop = false,
+			row = -1,
+			width = 0,
+			height = 0.6,
+			border = "top",
+			title = " {source} {live}",
+			title_pos = "left",
+			{ win = "input", height = 1, border = "bottom" },
+			{
+				box = "horizontal",
+				{ win = "list", border = "none" },
+				{ win = "preview", width = 0.6, border = "left" },
+			},
+		},
+	},
+}
+
+function M.add_opts_to_base(base_opts, extra_opts)
+    local final_opts = {}
+    for k,v in pairs(base_opts) do
+        final_opts[k] = v
+    end
+
+    for k,v in pairs(extra_opts) do
+        final_opts[k] = v
+    end
+    return final_opts
+end
 
 M.icons = {
     dap = {
