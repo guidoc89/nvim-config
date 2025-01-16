@@ -4,11 +4,11 @@ return {
     mappings = {
       add = "ys", -- Add surrounding in Normal and Visual modes
       delete = "ds", -- Delete surrounding
-      find = "yf", -- Find surrounding (to the right)
-      find_left = "yF", -- Find surrounding (to the left)
-      highlight = "yh", -- Highlight surrounding
+      -- find = "st", -- Find surrounding (to the right)
+      -- find_left = "sF", -- Find surrounding (to the left)
+      -- highlight = "sh", -- Highlight surrounding
       replace = "cs", -- Replace surrounding
-      update_n_lines = "yn", -- Update `n_lines`
+      -- update_n_lines = "sn", -- Update `n_lines`
     },
   },
 }
