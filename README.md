@@ -10,7 +10,7 @@
 
 
 - Add:
-```{lua}
+```lua
     local dark  = {
         -- ...
         bg9 = hsluv(300, 0, 50),
@@ -21,7 +21,7 @@
 
 - Tweak:
 
-```{lua}
+```lua
 local theme = lush(function(injected_functions)
   local sym = injected_functions.sym
   return {
@@ -84,7 +84,7 @@ end
 
 - Change order:
 
-```{lua}
+```lua
 function M.diagnostic(item, picker)
   local ret = {} ---@type snacks.picker.Highlight[]
   local diag = item.item ---@type vim.Diagnostic
