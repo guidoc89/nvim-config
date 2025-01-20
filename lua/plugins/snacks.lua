@@ -123,7 +123,7 @@ return {
 
         -- LSP
         { "gd", function() Snacks.picker.lsp_definitions(Utils.snacks_telescope_opts) end, desc = "Goto Definition" },
-        { "gt", function() Snacks.picker.lsp_type_definitions(telescope_opts) end, desc = "Goto Type Definition" },
+        { "gt", function() Snacks.picker.lsp_type_definitions(Utils.snacks_telescope_opts) end, desc = "Goto Type Definition" },
 		{ "<leader>vr", function() Snacks.picker.lsp_references(Utils.snacks_ivy_opts) end, desc = "Lsp References", },
 		{ "<leader>lw", function() Snacks.picker.diagnostics(Utils.snacks_ivy_opts) end, desc = "Workspace Diagnostics", },
 		{ "<leader>ld", function() Snacks.picker.diagnostics_buffer(Utils.snacks_ivy_opts) end, desc = "Buffer Diagnostics", },
