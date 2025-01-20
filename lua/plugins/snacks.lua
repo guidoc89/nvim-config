@@ -1,4 +1,4 @@
---
+---@type Utils
 local Utils = require("utils")
 
 return {

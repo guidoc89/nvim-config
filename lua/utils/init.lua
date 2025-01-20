@@ -1,3 +1,12 @@
+---@class Utils
+---@field root_patterns string[]
+---@field on_attach fun(on_attach: fun(client: any, buffer: number)): nil
+---@field get_root fun(): string
+---@field telescope fun(builtin: string, opts: table<string, any>): fun()
+---@field snacks_telescope_opts table<string, any>
+---@field snacks_ivy_opts table<string, any>
+---@field add_opts_to_base fun(base_opts: table<string, any>, extra_opts: table<string, any>): table<string, any>
+---@field icons table<string, any>
 local M = {}
 
 M.root_patterns = { ".git", "lua" }
@@ -13,6 +22,7 @@ function M.on_attach(on_attach)
   })
 end
 
+---@return string
 function M.get_root()
   ---@type string?
   local path = vim.api.nvim_buf_get_name(0)
@@ -130,6 +140,9 @@ M.snacks_ivy_opts = {
 	},
 }
 
+---@param base_opts table<string, any>
+---@param extra_opts table<string, any>
+---@return table<string, any>
 function M.add_opts_to_base(base_opts, extra_opts)
     local final_opts = {}
     for k,v in pairs(base_opts) do
