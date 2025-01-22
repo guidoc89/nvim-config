@@ -95,6 +95,7 @@ function M.telescope(builtin, opts)
 end
 
 M.snacks_telescope_opts = {
+	exclude = { "venv", ".git", },
 	layout = {
 		reverse = true,
 		layout = {
@@ -120,6 +121,7 @@ M.snacks_telescope_opts = {
 }
 
 M.snacks_ivy_opts = {
+	exclude = { "venv", ".git", },
 	layout = {
 		layout = {
 			box = "vertical",
