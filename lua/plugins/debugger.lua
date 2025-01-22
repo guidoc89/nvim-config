@@ -73,6 +73,28 @@ return {
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.open()
 			end
+			require("dapui").setup({
+				layouts = {
+					{
+						elements = {
+							{
+								id = "scopes",
+								size = 0.25,
+							},
+							{
+								id = "breakpoints",
+								size = 0.25,
+							},
+							{
+								id = "watches",
+								size = 0.25,
+							},
+						},
+						position = "left",
+						size = 40,
+					},
+				},
+			})
 		end,
 	},
 }
