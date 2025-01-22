@@ -92,7 +92,7 @@ function M.diagnostic(item, picker)
     vim.list_extend(ret, M.severity(item, picker))
   end
 
-  ---- HERE! ----
+  ---- TO HERE! ----
   vim.list_extend(ret, M.filename(item, picker))
 
 
@@ -109,7 +109,8 @@ function M.diagnostic(item, picker)
     ret[#ret + 1] = { ("(%s)"):format(diag.code), "SnacksPickerDiagnosticCode" }
     ret[#ret + 1] = { " " }
   end
-  vim.list_extend(ret, M.filename(item, picker))
+  --^^^ Move this one up ^^^
+  -- vim.list_extend(ret, M.filename(item, picker))
   return ret
 end
 
