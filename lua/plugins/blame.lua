@@ -4,6 +4,6 @@ return {
 		require("blame").setup({})
 	end,
 	keys = {
-		{ "<leader>ghb", "<CMD>BlameToggle<CR>", desc = "Git blame (blame)", mode = { "n" } },
+		{ "<leader>gb", "<CMD>BlameToggle<CR>", desc = "Git blame (blame)", mode = { "n" } },
 	},
 }
