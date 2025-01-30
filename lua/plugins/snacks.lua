@@ -105,9 +105,12 @@ return {
 		{ "<leader>f", function() Snacks.picker.files(Utils.snacks_telescope_opts) end, desc = "Find Files", },
 		{ "<leader>ba", function() Snacks.picker.buffers(Utils.snacks_telescope_opts) end, desc = "Buffers", },
 		{ "<leader>r", function() Snacks.picker.grep(Utils.snacks_telescope_opts) end, desc = "Grep", },
+		{ "<leader>R", function() Snacks.picker.grep_buffers(Utils.snacks_telescope_opts) end, desc = "Grep Buffers", },
         { "<leader>bl", function() Snacks.picker.lines() end, desc = "Grep Buffer Lines" },
 		{ "<leader>ht", function() Snacks.picker.help(Utils.snacks_telescope_opts) end, desc = "Help Tags", },
+		{ "<leader>ch", function() Snacks.picker.command_history(Utils.snacks_telescope_opts) end, desc = "Command History", },
 		{ "<leader>ma", function() Snacks.picker.keymaps(Utils.snacks_telescope_opts) end, desc = "Keymaps", },
+		{ "<leader>e", function() Snacks.picker.explorer() end, desc = "Explorer", },
 
         -- Config / plugin files
 		{ "<leader>cn", function() Snacks.picker.files(Utils.add_opts_to_base(Utils.snacks_ivy_opts, {
@@ -174,6 +177,7 @@ return {
 
         -- Git / Lazygit
 		{ "<leader>la", function() Snacks.picker.git_files(Utils.snacks_telescope_opts) end, desc = "Git Files", },
+		{ "<leader>lb", function() Snacks.picker.git_branches(Utils.snacks_telescope_opts) end, desc = "Git Branches", },
 		{ "<leader>lf", function() Snacks.picker.git_log_file(Utils.snacks_telescope_opts) end, desc = "Git Log File", },
 		{ "<leader>lc", function() Snacks.picker.git_log(Utils.snacks_telescope_opts) end, desc = "Git Log", },
 		{ "<leader>gf", function() Snacks.lazygit.log_file() end, desc = "Lazygit Current File History (Snacks)", },

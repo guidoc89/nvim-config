@@ -13,7 +13,6 @@ local builtin = require("telescope.builtin")
 local keymap = vim.keymap.set
 
 -- stylua: ignore start
-keymap("n", "<leader>lb", builtin.git_branches, { desc = "Git branches" })
 keymap("n", "<leader>cc", builtin.colorscheme, { desc = "Change colorscheme" })
 -- stylua: ignore end
 
