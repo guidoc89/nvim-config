@@ -1,32 +1,5 @@
--- VSCode-like icons
-local kind_icons = {
-	Text = "",
-	Function = "",
-	Method = "",
-	Constructor = "",
-	Field = "",
-	Variable = "",
-	Class = "",
-	Interface = "",
-	Module = "",
-	Property = "",
-	Unit = "",
-	Value = "",
-	Enum = "",
-	Keyword = "",
-	Snippet = "",
-	Color = "",
-	File = "",
-	Reference = "",
-	Folder = "",
-	EnumMember = "",
-	Constant = "",
-	Struct = "",
-	Event = "",
-	Operator = "",
-	TypeParameter = "",
-}
 
+local Utils = require("utils")
 local lsp = require("lsp-zero").preset({
 	name = "minimal",
 	set_lsp_keymaps = true,
@@ -81,7 +54,7 @@ lsp.setup_nvim_cmp({
 				end
 				-- Kind icons
 				-- TODO: disabled the line to try to get rid of the squares to the sides of the current line (THIS ISNT THE CAUSE)
-				vim_item.kind = string.format("%s %s", kind_icons[vim_item.kind], vim_item.kind)
+				vim_item.kind = string.format("%s %s", Utils.icons.kinds[vim_item.kind], vim_item.kind)
 				-- Source
 				vim_item.menu = ({
 					buffer = "[Buf]",
