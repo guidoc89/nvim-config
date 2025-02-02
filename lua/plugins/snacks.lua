@@ -111,6 +111,7 @@ return {
 		{ "<leader>ch", function() Snacks.picker.command_history(Utils.snacks_telescope_opts) end, desc = "Command History", },
 		{ "<leader>ma", function() Snacks.picker.keymaps(Utils.snacks_telescope_opts) end, desc = "Keymaps", },
 		{ "<leader>e", function() Snacks.picker.explorer() end, desc = "Explorer", },
+		{ "<leader>i", function() Snacks.picker.icons() end, desc = "Icons", },
 
         -- Config / plugin files
 		{ "<leader>cn", function() Snacks.picker.files(Utils.add_opts_to_base(Utils.snacks_ivy_opts, {
