@@ -4,6 +4,12 @@ vim.wo.cursorline = true
 
 return {
 
+    {
+        "guidoc89/sakura.nvim",
+        config = function()
+            vim.cmd.colorscheme("sakura")
+        end
+    },
 	{
 		"dgox16/oldworld.nvim",
 	},
@@ -13,13 +19,6 @@ return {
 	{
 		"sho-87/kanagawa-paper.nvim",
 	},
-	{
-		"anAcc22/sakura.nvim",
-		config = function()
-			vim.cmd.colorscheme("sakura")
-		end,
-	},
-
 	{
 		"tiagovla/tokyodark.nvim",
 	},

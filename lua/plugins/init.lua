@@ -13,8 +13,6 @@ return {
         }
     },
 	"nvim-telescope/telescope-media-files.nvim",
-    -- colorschemes,
- 	"rktjmp/lush.nvim",
 
 	-- treesitter
   {
