@@ -16,6 +16,8 @@ lsp.ensure_installed({
 	"jsonls",
 	"cssls",
 	"tailwindcss",
+    "pyright",
+    "ruff"
 })
 
 local lspkind = require("lspkind")
@@ -259,46 +261,51 @@ require("lspconfig").tailwindcss.setup({
 	},
 })
 
--- Pyright disabling (for linting)
 lsp.configure("pyright", {
-	capabilities = (function()
-		local capabilities = vim.lsp.protocol.make_client_capabilities()
-		capabilities.textDocument.publishDiagnostics.tagSupport.valueSet = { 2 }
-		return capabilities
-	end)(),
+    -- handlers = {
+    --     ["textDocument/publishDiagnostics"] = function() end,
+    -- },
+    capabilities = {
+        textDocument = {
+            publishDiagnostics = {
+                tagSupport = {
+                    valueSet = { 2 },
+                }
+            }
+        }
+    },
 	settings = {
+        pyright = {
+            disableOrganizeImports = true,
+            disableTaggedHints = true,
+        },
 		python = {
 			analysis = {
-				autoImportCompletions = true,
+                ignore = { '*' },
 				useLibraryCodeForTypes = true,
-				autoSearchPaths = true,
 				diagnosticSeverityOverrides = {
-					reportUnusedVariable = "warning", -- or anything
-				},
+				                reportUndefinedVariable = "none",
+				                reportUnusedExpression = "none",
+				                reportUnusedVariable = "none",
+				                reportUnusedCallResult = "none",
+				            },
 				typeCheckingMode = "basic",
 			},
 		},
 	},
 })
---
---
--- After didabling pyright, activate ruff for linting (TODO: how to implement pyright only for completion, and ruff for linting without having duplicate diagnostics??)
--- lsp.configure('ruff_lsp', {
---     settings = {
---         arg = {
---             lineLength = 120,
---         },
---     },
---     on_attach = function(client, bufnr)
---         client.server_capabilities.hoverProvider = false
---     end
---     }
--- )
 
---
--- lsp.skip_server_setup({ "pyright" })
--- lsp.skip_server_setup({ "ruff_lsp", "eslint" })
-lsp.skip_server_setup({ "ruff_lsp" })
+lsp.configure("ruff", {
+    settings = {
+        arg = {
+            lineLength = 120,
+        },
+    },
+    on_attach = function(client, bufnr)
+        client.server_capabilities.hoverProvider = false
+    end
+    }
+)
 
 lsp.format_mapping("<leader>;f", {
 	format_opts = {
