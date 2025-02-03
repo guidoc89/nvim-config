@@ -87,12 +87,6 @@ return {
 	},
 	{
 		"folke/tokyonight.nvim",
-		config = function()
-			require("tokyonight").setup({
-				transparent = true,
-				style = "moon",
-			})
-		end,
 	},
 	{
 		"joshdick/onedark.vim",
