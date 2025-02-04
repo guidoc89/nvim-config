@@ -126,6 +126,7 @@ return {
 		{ "<leader>sf", function() Snacks.dashboard.pick("oldfiles", Utils.snacks_telescope_opts) end, desc = "Recent Files", },
 
         -- LSP
+        { "z=", function() Snacks.picker.spelling() end, desc = "Spelling" },
         { "gd", function() Snacks.picker.lsp_definitions(Utils.snacks_telescope_opts) end, desc = "Goto Definition" },
         { "gt", function() Snacks.picker.lsp_type_definitions(Utils.snacks_telescope_opts) end, desc = "Goto Type Definition" },
 		{ "<leader>vr", function() Snacks.picker.lsp_references(Utils.snacks_ivy_opts) end, desc = "Lsp References", },
