@@ -59,7 +59,7 @@ vim.api.nvim_create_autocmd("User", {
 -- Set python host
 vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python3")
 
-vim.cmd("set signcolumn=yes:1")
+vim.cmd("set signcolumn=yes:2")
 
 -- Clipboard in WSL
 if vim.fn.has("wsl") == 1 then
