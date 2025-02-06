@@ -112,6 +112,7 @@ return {
 		{ "<leader>ma", function() Snacks.picker.keymaps(Utils.snacks_telescope_opts) end, desc = "Keymaps", },
 		{ "<leader>e", function() Snacks.picker.explorer() end, desc = "Explorer", },
 		{ "<leader>i", function() Snacks.picker.icons() end, desc = "Icons", },
+		{ "<leader>hi", function() Snacks.picker.highlights() end, desc = "Highlights", },
 
         -- Config / plugin files
 		{ "<leader>cn", function() Snacks.picker.files(Utils.add_opts_to_base(Utils.snacks_ivy_opts, {
