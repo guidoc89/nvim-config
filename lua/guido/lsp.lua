@@ -345,15 +345,34 @@ null_ls.setup({
 -- In order to have in-line diagnostics, need to configure them AFTER the lsp-zero's setup (from the github)
 vim.diagnostic.config({
 	virtual_text = true,
-	signs = true,
+  -- signs = true,
+    signs = {
+      text = {
+        [vim.diagnostic.severity.ERROR] = "",
+        [vim.diagnostic.severity.WARN] = "",
+        [vim.diagnostic.severity.INFO] = "",
+        [vim.diagnostic.severity.HINT] = "",
+      },
+      numhl = {
+        [vim.diagnostic.severity.WARN] = "WarningMsg",
+        [vim.diagnostic.severity.ERROR] = "ErrorMsg",
+        [vim.diagnostic.severity.INFO] = "DiagnosticInfo",
+        [vim.diagnostic.severity.HINT] = "DiagnosticHint",
+
+      },
+    },
 	update_in_insert = false,
-	underline = false,
-	severity_sort = false,
+	underline = true,
+	severity_sort = true,
+    severity = {
+        min = vim.diagnostic.severity.INFO,
+    },
 	float = {
 		focusable = false,
-		style = "minimal",
+        show_header = false,
+        show_prefix = false,
 		border = "rounded",
-		source = "always",
+		source = "if_many",
 		header = "",
 		prefix = "",
 	},

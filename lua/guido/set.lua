@@ -6,6 +6,10 @@ vim.opt.shell = "zsh"
 vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
+vim.o.termguicolors = true
+vim.o.signcolumn = "yes:1"
+vim.o.statuscolumn = "%l%s"
+vim.o.numberwidth = 3
 
 vim.opt.nu = true
 vim.opt.relativenumber = true
@@ -58,8 +62,6 @@ vim.api.nvim_create_autocmd("User", {
 })
 -- Set python host
 vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python3")
-
-vim.cmd("set signcolumn=yes:2")
 
 -- Clipboard in WSL
 if vim.fn.has("wsl") == 1 then
