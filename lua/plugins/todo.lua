@@ -3,6 +3,7 @@ return {
 	dependencies = { "nvim-lua/plenary.nvim" },
 	lazy = false,
 	opts = {
+        signs = false,
 		search = {
 			command = "rg",
 			args = {
