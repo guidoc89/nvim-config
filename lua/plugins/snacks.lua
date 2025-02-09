@@ -134,6 +134,9 @@ return {
 		{ "<leader>lw", function() Snacks.picker.diagnostics(Utils.snacks_ivy_opts) end, desc = "Workspace Diagnostics", },
 		{ "<leader>ld", function() Snacks.picker.diagnostics_buffer(Utils.snacks_ivy_opts) end, desc = "Buffer Diagnostics", },
 		{ "<leader>ss", function() Snacks.picker.lsp_symbols({
+            layout = {
+             preset = "sidebar",
+            },
             filter = {
                 default = {
                     "Class",
