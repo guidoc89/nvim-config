@@ -359,7 +359,7 @@ vim.diagnostic.config({
       },
     },
 	update_in_insert = false,
-	underline = true,
+	underline = false,
 	severity_sort = true,
     severity = {
         min = vim.diagnostic.severity.INFO,
