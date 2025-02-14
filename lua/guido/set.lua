@@ -60,6 +60,13 @@ vim.api.nvim_create_autocmd("User", {
         vim.cmd([[match none]])
     end,
 })
+
+-- Disable adding commented lines on "o"/"O"
+vim.api.nvim_create_autocmd("BufEnter", {
+    callback = function()
+        vim.opt.formatoptions:remove({ "o", "r" })
+    end
+})
 -- Set python host
 vim.g.python3_host_prog = vim.fn.expand("~/.config/nvim/venv/bin/python3")
 
