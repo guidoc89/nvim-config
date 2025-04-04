@@ -81,18 +81,14 @@ return {
 		branch = "v1.x",
 		dependencies = {
 			-- lsp support
-			{ "neovim/nvim-lspconfig" }, -- required
-			{ "williamboman/mason.nvim" }, -- optional
-			{ "williamboman/mason-lspconfig.nvim" }, -- optional
+			{ "williamboman/mason.nvim" },
+			{ "williamboman/mason-lspconfig.nvim" },
+            {
+              "neovim/nvim-lspconfig",
+              dependencies = { "saghen/blink.cmp" },
+            },
 
-			-- autocompletion
-			{ "hrsh7th/nvim-cmp" }, -- required
-			{ "hrsh7th/cmp-nvim-lsp" }, -- required
-			{ "hrsh7th/cmp-buffer" }, -- optional
-			{ "hrsh7th/cmp-path" }, -- optional
-            { "hrsh7th/cmp-cmdline" },
-			{ "hrsh7th/cmp-nvim-lua" }, -- optional
-			{ "onsails/lspkind.nvim" }, -- optional
+			{ "onsails/lspkind.nvim" },
 
 		},
 	},
