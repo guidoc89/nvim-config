@@ -1,9 +1,7 @@
-
-local Utils = require("utils")
 local lsp = require("lsp-zero").preset({
 	name = "minimal",
 	set_lsp_keymaps = true,
-	manage_nvim_cmp = true,
+	manage_nvim_cmp = false,
 	suggest_lsp_servers = false,
 })
 
@@ -16,113 +14,10 @@ lsp.ensure_installed({
 	"jsonls",
 	"cssls",
 	"tailwindcss",
-    "pyright",
-    "ruff"
 })
 
-local lspkind = require("lspkind")
-local cmp = require("cmp")
-
-local cmp_select = { behavior = cmp.SelectBehavior.Select }
-local cmp_mappings = lsp.defaults.cmp_mappings({
-	["<S-Tab>"] = cmp.mapping.select_prev_item(cmp_select),
-	["<Tab>"] = cmp.mapping.select_next_item(cmp_select),
-	["<C-y>"] = cmp.mapping.confirm({ select = true }),
-	["<C-space>"] = cmp.mapping.complete(),
-})
-
-lsp.setup_nvim_cmp({
-	sources = {
-		{ name = "path", keyword_length = 1, max_item_count = 5 },
-		{ name = "nvim_lsp", keyword_length = 1, max_item_count = 8 },
-		{ name = "buffer", keyword_length = 3, max_item_count = 6 },
-		{ name = "luasnip", keyword_length = 1, max_item_count = 6 },
-		{ name = "otter", max_item_count = 5 },
-		{ name = "latex", max_item_count = 5 },
-		{ name = "neorg", max_item_count = 5 },
-	},
-	mapping = cmp_mappings,
-	formatting = {
-		fields = { "abbr", "kind", "menu" },
-		format = lspkind.cmp_format({
-			mode = "text_symbol",
-			max_width = 50,
-			-- The function below will be called before any actual modifications from lspkind
-			-- so that you can provide more controls on popup customization. (See [#30](https://github.com/onsails/lspkind-nvim/pull/30))
-			before = function(entry, vim_item)
-				local shorten_abbr = string.sub(vim_item.abbr, 1, 30)
-				if shorten_abbr ~= vim_item.abbr then
-					vim_item.abbr = shorten_abbr .. "..."
-				end
-				-- Kind icons
-				-- TODO: disabled the line to try to get rid of the squares to the sides of the current line (THIS ISNT THE CAUSE)
-				vim_item.kind = string.format("%s %s", Utils.icons.kinds[vim_item.kind], vim_item.kind)
-				-- Source
-				vim_item.menu = ({
-					buffer = "[Buf]",
-					nvim_lsp = "[LSP]",
-					luasnip = "[LuaSnip]",
-					nvim_lua = "[API]",
-					latex_symbols = "[LaTeX]",
-					cmp_tabnine = "[Tabnine]",
-					path = "[Path]",
-					otter = "[Quarto]",
-					emoji = "[Emoji]",
-				})[entry.source.name]
-				return vim_item
-			end,
-		}),
-	},
-})
-
-cmp.setup.cmdline(":", {
-	completion = {
-		completeopt = "menu,menuone,noinsert,noselect",
-	},
-	mapping = cmp.mapping.preset.cmdline(),
-	sources = cmp.config.sources({
-		{ name = "path", max_item_count = 12  },
-	}, {
-		{ name = "cmdline", max_item_count = 12 },
-		{ name = "lazydev", max_item_count = 12 },
-	}),
-})
-
-local augroup = vim.api.nvim_create_augroup("CmdLineWindow", { clear = true })
-
--- Autocmd for enabling cmp suggestion in cmdwin
-vim.api.nvim_create_autocmd("CmdwinEnter", {
-    group = augroup,
-    callback = function()
-        cmp.setup.buffer({
-	        mapping = cmp.mapping.preset.cmdline(),
-            sources = {
-                { name = 'buffer' , max_item_count = 12 },
-                { name = 'cmdline', max_item_count = 12 },
-            },
-        })
-    end,
-})
--- Cmdline search cmp
-cmp.setup.cmdline('/', {
-	completion = {
-		completeopt = "menu,menuone,noinsert,noselect",
-	},
-      mapping = cmp.mapping.preset.cmdline(),
-      sources = {
-        { name = 'buffer', max_item_count = 12 }
-      }
-    })
-
-vim.api.nvim_create_autocmd("FileType", {
-    pattern = {"sql", "mysql", "plsql"},
-    callback = function()
-        cmp.setup.buffer {
-            sources = {
-                { name = "vim-dadbod-completion", max_item_count = 12 }
-            }
-        }
-    end,
+	"basedpyright",
+	"ruff",
 })
 
 lsp.on_attach(function(client, bufnr)
@@ -185,7 +80,7 @@ lsp.configure("html", {
 })
 
 -- Tailwind
-require("lspconfig").tailwindcss.setup({
+lsp.configure("tailwindcss", {
 	cmd = { "tailwindcss-language-server", "--stdio" },
 	root_dir = require("lspconfig.util").root_pattern(
 		"tailwind.config.js",
@@ -238,74 +133,45 @@ require("lspconfig").tailwindcss.setup({
 					[[class= "([^"]*)]],
 					[[class: "([^"]*)]],
 					'~H""".*class="([^"]*)".*"""',
+lsp.configure("basedpyright", {
+	capabilities = {
+		textDocument = {
+			publishDiagnostics = {
+				tagSupport = {
+					valueSet = { 2 },
 				},
 			},
-			validate = true,
 		},
 	},
-	filetypes = {
-		-- "python", -- ex: for Dash classes
-		"css",
-		"scss",
-		"sass",
-		"html",
-		"htmldjango",
-		"heex",
-		"elixir",
-		"eruby",
-		"javascript",
-		"javascriptreact",
-		"typescript",
-		"typescriptreact",
-		"svelte",
-	},
-})
-
-lsp.configure("pyright", {
-    -- handlers = {
-    --     ["textDocument/publishDiagnostics"] = function() end,
-    -- },
-    capabilities = {
-        textDocument = {
-            publishDiagnostics = {
-                tagSupport = {
-                    valueSet = { 2 },
-                }
-            }
-        }
-    },
 	settings = {
-        pyright = {
-            disableOrganizeImports = true,
-            disableTaggedHints = true,
-        },
-		python = {
+		basedpyright = {
+			typeCheckingMode = "standard",
 			analysis = {
-                ignore = { '*' },
+				-- ignore = { "*" },
 				useLibraryCodeForTypes = true,
 				diagnosticSeverityOverrides = {
-				                reportUndefinedVariable = "none",
-				                reportUnusedExpression = "none",
-				                reportUnusedVariable = "none",
-				                reportUnusedCallResult = "none",
-				            },
-				typeCheckingMode = "basic",
+					reportUndefinedVariable = "none",
+					reportUnusedExpression = "none",
+					reportUnusedImport = "none",
+					reportUnusedVariable = "none",
+					reportUnusedCallResult = "none",
+				},
 			},
 		},
 	},
 })
 
+
 lsp.configure("ruff", {
-    settings = {
-        arg = {
-            lineLength = 120,
-        },
-    },
-    on_attach = function(client, bufnr)
-        client.server_capabilities.hoverProvider = false
-    end
-    }
-)
+	settings = {
+		arg = {
+			lineLength = 120,
+		},
+	},
+	on_attach = function(client, _)
+		client.server_capabilities.hoverProvider = false
+	end,
+})
 
 lsp.format_mapping("<leader>;f", {
 	format_opts = {
