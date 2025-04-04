@@ -109,7 +109,7 @@ lsp.configure("tailwindcss", {
 			typescript = "javascript",
 			javascript = "javascript",
 			javascriptreact = "javascriptreact",
-			typescriptreact = "javascript",
+			typescriptreact = "typescriptreact",
 			["html-eex"] = "html",
 			["phoenix-heex"] = "html",
 			heex = "html",
@@ -133,6 +133,29 @@ lsp.configure("tailwindcss", {
 					[[class= "([^"]*)]],
 					[[class: "([^"]*)]],
 					'~H""".*class="([^"]*)".*"""',
+				},
+			},
+			validate = true,
+		},
+	},
+	filetypes = {
+		-- "python", -- ex: for Dash classes
+		"css",
+		"scss",
+		"sass",
+		"html",
+		"htmldjango",
+		"heex",
+		"elixir",
+		"eruby",
+		"javascript",
+		"javascriptreact",
+		"typescript",
+		"typescriptreact",
+		"svelte",
+	},
+})
+
 lsp.configure("basedpyright", {
 	capabilities = {
 		textDocument = {
