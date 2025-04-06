@@ -10,6 +10,7 @@
 local M = {}
 
 M.root_patterns = { ".git", "lua" }
+M.exclude_dirs = { "venv", ".git", "node_modules" }
 
 ---@param on_attach fun(client, buffer)
 function M.on_attach(on_attach)
@@ -95,7 +96,7 @@ function M.telescope(builtin, opts)
 end
 
 M.snacks_telescope_opts = {
-	exclude = { "venv", ".git", },
+    exclude = M.exclude_dirs,
 	layout = {
 		reverse = true,
 		layout = {
@@ -121,7 +122,7 @@ M.snacks_telescope_opts = {
 }
 
 M.snacks_ivy_opts = {
-	exclude = { "venv", ".git", },
+	exclude = M.exclude_dirs,
 	layout = {
 		layout = {
 			box = "vertical",
