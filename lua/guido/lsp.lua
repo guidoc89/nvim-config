@@ -3,6 +3,7 @@ local lsp = require("lsp-zero").preset({
 	set_lsp_keymaps = true,
 	manage_nvim_cmp = false,
 	suggest_lsp_servers = false,
+    cmp_capabilities = false,
 })
 
 --
