@@ -130,7 +130,7 @@ return {
 			},
 		},
 
-		fuzzy = { implementation = "lua" },
+		fuzzy = { implementation = "prefer_rust_with_warning" },
 		cmdline = {
 			enabled = true,
 			keymap = {
