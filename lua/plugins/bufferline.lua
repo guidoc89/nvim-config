@@ -3,6 +3,7 @@ return {
   "akinsho/bufferline.nvim",
     dependencies = {
         "echasnovski/mini.bufremove",
+        "echasnovski/mini.icons",
     },
   event = "VeryLazy",
   keys = {
@@ -16,6 +17,7 @@ return {
       -- stylua: ignore
       right_mouse_command = function(n) require("mini.bufremove").delete(n, false) end,
       diagnostics = "nvim_lsp",
+      separator_style = "slope",
       always_show_bufferline = false,
       diagnostics_indicator = function(_, _, diag)
         local icons = require("utils").icons.diagnostics
