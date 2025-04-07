@@ -217,6 +217,17 @@ lsp.format_mapping("<leader>;f", {
 	},
 })
 
+-- This overrides the none-ls one
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(event)
+		local opts = { buffer = event.buf }
+
+		vim.keymap.set({ "n", "x" }, "<leader>;f", function()
+			vim.lsp.buf.format({ async = false, timeout_ms = 10000 })
+		end, opts)
+	end,
+})
+
 lsp.setup()
 
 local null_ls = require("null-ls")
@@ -224,8 +235,6 @@ null_ls.setup({
 	sources = {
 		null_ls.builtins.formatting.stylua,
 		null_ls.builtins.formatting.prettierd,
-		null_ls.builtins.formatting.black,
-		null_ls.builtins.formatting.rustfmt,
 	},
 })
 
