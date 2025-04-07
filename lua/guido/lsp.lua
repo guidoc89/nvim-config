@@ -13,10 +13,6 @@ lsp.ensure_installed({
 	"rust_analyzer",
 	"html",
 	"jsonls",
-	"cssls",
-	"tailwindcss",
-})
-
 	"basedpyright",
 	"ruff",
 })
