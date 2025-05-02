@@ -4,6 +4,7 @@
   "bufferline.nvim": { "branch": "main", "commit": "0b2fd861eee7595015b6561dade52fb060be10c4" },
   "colorful-menu.nvim": { "branch": "master", "commit": "91621b22c334812e5bbf0c8f82fc03869279acfe" },
   "csvview.nvim": { "branch": "main", "commit": "22eb36a8d17b15bdb0d934381198089bad1e4b7d" },
+  "darcula-dark.nvim": { "branch": "main", "commit": "5e8edf8b2aff3bf3d5110799713d29649cb87bbb" },
   "diffview.nvim": { "branch": "main", "commit": "4516612fe98ff56ae0415a259ff6361a89419b0a" },
   "dropbar.nvim": { "branch": "master", "commit": "96f4b8672817d49549c1b2dbea3bf0ae3235f38a" },
   "flash.nvim": { "branch": "main", "commit": "34c7be146a91fec3555c33fe89c7d643f6ef5cf1" },
@@ -74,5 +75,7 @@
   "vim-dadbod-completion": { "branch": "master", "commit": "a8dac0b3cf6132c80dc9b18bef36d4cf7a9e1fe6" },
   "vim-dadbod-ui": { "branch": "master", "commit": "f29c85ab42861c6ef683289b0c6a51e0d436dcf6" },
   "vim-fugitive": { "branch": "master", "commit": "572c8510123cbde02e8a1dafcd376c98e1e13f43" },
-  "vim-illuminate": { "branch": "master", "commit": "ec02591dc87ae8679c57becbc95102a1fe5e783b" }
+  "vim-illuminate": { "branch": "master", "commit": "ec02591dc87ae8679c57becbc95102a1fe5e783b" },
+  "vscode.nvim": { "branch": "main", "commit": "49d6014ba151fc6cc585b8d5f057ca7839077bf8" },
+  "zenbones.nvim": { "branch": "main", "commit": "0c14c7d00016953c41f22c6eb885ade87010bb69" }
 }

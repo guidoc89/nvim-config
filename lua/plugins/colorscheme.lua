@@ -10,6 +10,20 @@ return {
             vim.cmd.colorscheme("sakura")
         end
     },
+    {
+        "xiantang/darcula-dark.nvim",
+        dependencies = { "nvim-treesitter/nvim-treesitter" },
+    },
+	{
+		"Mofiqul/vscode.nvim",
+	},
+    {
+        "zenbones-theme/zenbones.nvim",
+        config = function ()
+            -- BUG: doesnt work with 'randombones' telescope previewer!
+            vim.g.bones_compat = 1
+        end
+    },
 	{
 		"dgox16/oldworld.nvim",
 	},
