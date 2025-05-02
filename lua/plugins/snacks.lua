@@ -72,7 +72,18 @@ return {
 				{ section = "startup" },
 			},
 		},
-		indent = { enabled = false },
+		indent = {
+            chunk = {
+                enabled = true,
+                char = {
+                    horizontal = "─",
+                    vertical = "│",
+                    corner_top = "╭",
+                    corner_bottom = "╰",
+                    arrow = ">",
+                },
+            }
+        },
 		input = { enabled = false },
 		notifier = {
 			enabled = false,

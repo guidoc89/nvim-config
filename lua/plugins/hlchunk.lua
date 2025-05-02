@@ -3,19 +3,17 @@ return {
     event = { "BufReadPre", "BufNewFile" },
 	config = function()
 		require("hlchunk").setup({
+            chunk = {
+                enable = false
+            },
 			blank = {
-				enable = false,
+				enable = true,
 			},
             line_num = {
                 enable = false,
             },
             indent = {
-                enable = true,
-                exclude_filetypes = {
-                    snacks_dashboard = true,
-                    dashboard = true,
-                    alpha = true,
-                },
+                enable = false,
 
             }
 		})
