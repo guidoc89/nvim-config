@@ -45,14 +45,12 @@ return {
         swap = {
           enable = true,
           swap_next = {
-            ["<leader>ja"] = "@parameter.inner", -- swap parameters/argument with next
-            -- ["<leader>n:"] = "@property.outer", -- swap object property with next
-            ["<leader>jm"] = "@function.outer", -- swap function with next
+            ["<leader>ka"] = "@parameter.inner", -- swap parameters/argument with next
+            ["<leader>kf"] = "@function.outer", -- swap function with next
           },
           swap_previous = {
-            ["<leader>ka"] = "@parameter.inner", -- swap parameters/argument with prev
-            -- ["<leader>p:"] = "@property.outer", -- swap object property with prev
-            ["<leader>km"] = "@function.outer", -- swap function with previous
+            ["<leader>ja"] = "@parameter.inner", -- swap parameters/argument with prev
+            ["<leader>jf"] = "@function.outer", -- swap function with previous
           },
         },
         move = {
@@ -67,7 +65,6 @@ return {
 
             -- You can pass a query group to use query from `queries/<lang>/<query_group>.scm file in your runtime path.
             -- Below example nvim-treesitter's `locals.scm` and `folds.scm`. They also provide highlights.scm and indent.scm.
-            ["]s"] = { query = "@scope", query_group = "locals", desc = "Next scope" },
             ["]z"] = { query = "@fold", query_group = "folds", desc = "Next fold" },
           },
           goto_next_end = {
