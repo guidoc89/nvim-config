@@ -47,10 +47,12 @@ return {
           swap_next = {
             ["<leader>ka"] = "@parameter.inner", -- swap parameters/argument with next
             ["<leader>kf"] = "@function.outer", -- swap function with next
+            ["<leader>kc"] = "@class.outer", -- swap class with next
           },
           swap_previous = {
             ["<leader>ja"] = "@parameter.inner", -- swap parameters/argument with prev
             ["<leader>jf"] = "@function.outer", -- swap function with previous
+            ["<leader>jc"] = "@class.outer", -- swap class with previous
           },
         },
         move = {
