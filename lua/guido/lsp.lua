@@ -192,6 +192,14 @@ lsp.configure("ruff", {
 			lineLength = 120,
 		},
 	},
+	init_options = {
+		settings = {
+	           showSyntaxErrors = false,
+			lint = {
+	               ignore = { "F821" },
+			},
+		},
+	},
 	on_attach = function(client, _)
 		client.server_capabilities.hoverProvider = false
 	end,
@@ -228,6 +236,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
+vim.lsp.enable("ty")
+lsp.skip_server_setup({ "basedpyright" })
 lsp.setup()
 
 local null_ls = require("null-ls")
