@@ -178,6 +178,10 @@ lsp.configure("basedpyright", {
 				},
 			},
 		},
+        python = {
+            venvPath = "./venv",
+            venv = './venv',
+          },
 	},
 })
 
