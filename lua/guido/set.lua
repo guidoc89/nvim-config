@@ -7,6 +7,7 @@ vim.scriptencoding = "utf-8"
 vim.opt.encoding = "utf-8"
 vim.opt.fileencoding = "utf-8"
 vim.o.termguicolors = true
+vim.o.colorcolumn = "120"
 vim.o.signcolumn = "yes:1"
 vim.o.statuscolumn = "%l%s"
 vim.o.numberwidth = 3
